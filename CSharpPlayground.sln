@@ -10,14 +10,31 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Net.Bcl", "Net.Bcl\Net.Bcl.csproj", "{4563511A-E9CE-4CA0-AD8C-2AA47AEFCD45}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roslyn.Core.Parser", "Roslyn.Core.Parser\Roslyn.Core.Parser.csproj", "{640D7BE6-7DBA-4B39-9B8D-D2EDF9346E36}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4563511A-E9CE-4CA0-AD8C-2AA47AEFCD45} = {4563511A-E9CE-4CA0-AD8C-2AA47AEFCD45}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roslyn.CSharp.Parser", "Roslyn.CSharp.Parser\Roslyn.CSharp.Parser.csproj", "{C7F5EA97-5EB7-41C9-A5C0-38B0FDAE805A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4563511A-E9CE-4CA0-AD8C-2AA47AEFCD45} = {4563511A-E9CE-4CA0-AD8C-2AA47AEFCD45}
+		{640D7BE6-7DBA-4B39-9B8D-D2EDF9346E36} = {640D7BE6-7DBA-4B39-9B8D-D2EDF9346E36}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpSyntaxGenerator", "CSharpSyntaxGenerator\CSharpSyntaxGenerator.csproj", "{6FF3FF92-07ED-41E5-ABDD-3C0AF61DA0C2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{E8A9CA32-46C0-4C9F-9066-2E9B9CF3E377}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpSyntaxVisualizer", "CSharpSyntaxVisualizer\CSharpSyntaxVisualizer.csproj", "{6E1532ED-0EED-4DAD-A745-276B21C66D7E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4563511A-E9CE-4CA0-AD8C-2AA47AEFCD45} = {4563511A-E9CE-4CA0-AD8C-2AA47AEFCD45}
+		{C7F5EA97-5EB7-41C9-A5C0-38B0FDAE805A} = {C7F5EA97-5EB7-41C9-A5C0-38B0FDAE805A}
+		{640D7BE6-7DBA-4B39-9B8D-D2EDF9346E36} = {640D7BE6-7DBA-4B39-9B8D-D2EDF9346E36}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{12C7225C-DD84-45AA-A477-54EF925FCF6E}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
