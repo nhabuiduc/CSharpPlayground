@@ -4,7 +4,7 @@
 
 1 . Setup and run project:  
 .Using Visual Studio 2015 (it maybe ok with 2013, because they're all typescript file,not tested! )  
-.Project must be built in following order manually at the first time:  
+.Projects must be built in following order manually at the first time:  
   - Net.Bcl
   - Roslyn.Core.Parser
   - Roslyn.CSharp.Parser
@@ -14,7 +14,7 @@
 
 2 . CSharpSyntaxVisualizer page:  
  . Demo page: http://bdnprojects.net/CSharpSyntaxParser/  
- .Based from Syntax Visualizer tool in Roslyn project  
+ .Based on Syntax Visualizer tool in Roslyn project  
  .Input your C# sourcecode, and click Refresh Tree  
  .Click on any text, it will navigate to corresponding Node in Tree  
 
