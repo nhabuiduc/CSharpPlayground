@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{C7F5EA97-5EB7-41C9-A5C0-38B0FDAE805A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>1.4</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="..\Net.Bcl\_TSOutput\Net.Bcl.d.ts">
+      <Link>_TSReferences\Net.Bcl.d.ts</Link>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="..\Roslyn.Core.Parser\_TSOutput\Roslyn.Core.Parser.d.ts">
+      <Link>_TSReferences\Roslyn.Core.Parser.d.ts</Link>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="CSharp\CSharpExtensions.ts" />
+    <TypeScriptCompile Include="CSharp\CSharpParseOptions.ts" />
+    <TypeScriptCompile Include="CSharp\CSharpResource.ts" />
+    <TypeScriptCompile Include="CSharp\Errors\CSDiagnostic.ts" />
+    <TypeScriptCompile Include="CSharp\Errors\CSharpDiagnosticFormatter.ts" />
+    <TypeScriptCompile Include="CSharp\Errors\ErrorCode.ts" />
+    <TypeScriptCompile Include="CSharp\Errors\ErrorFacts.ts" />
+    <TypeScriptCompile Include="CSharp\Errors\MessageID.ts" />
+    <TypeScriptCompile Include="CSharp\Errors\MessageProvider.ts" />
+    <TypeScriptCompile Include="CSharp\Errors\SyntaxDiagnosticInfo.ts" />
+    <TypeScriptCompile Include="CSharp\Errors\XmlParseErrorCode.ts" />
+    <TypeScriptCompile Include="CSharp\Errors\XmlSyntaxDiagnosticInfo.ts" />
+    <TypeScriptCompile Include="CSharp\Generated\CSharp.Syntax.InternalSyntaxTS.ts" />
+    <TypeScriptCompile Include="CSharp\Generated\CSharp.SyntaxTS.ts" />
+    <TypeScriptCompile Include="CSharp\Generated\CSharpTS.ts" />
+    <TypeScriptCompile Include="CSharp\Generated\ErrorFacts.Generated.ts" />
+    <TypeScriptCompile Include="CSharp\LanguageVersion.ts" />
+    <TypeScriptCompile Include="CSharp\Parser\AbstractLexer.ts" />
+    <TypeScriptCompile Include="CSharp\Parser\BlendedNode.ts" />
+    <TypeScriptCompile Include="CSharp\Parser\Blender.Cursor.ts" />
+    <TypeScriptCompile Include="CSharp\Parser\Blender.Reader.ts" />
+    <TypeScriptCompile Include="CSharp\Parser\Blender.ts" />
+    <TypeScriptCompile Include="CSharp\Parser\CharacterInfo.ts" />
+    <TypeScriptCompile Include="CSharp\Parser\DirectiveParser.ts" />
+    <TypeScriptCompile Include="CSharp\Parser\Directives.ts" />
+    <TypeScriptCompile Include="CSharp\Parser\DocumentationCommentParser.ts" />
+    <TypeScriptCompile Include="CSharp\Parser\DocumentationCommentXmlTokens.ts" />
+    <TypeScriptCompile Include="CSharp\Parser\LanguageParser.ts" />
+    <TypeScriptCompile Include="CSharp\Parser\LanguageParser_InterpolatedString.ts" />
+    <TypeScriptCompile Include="CSharp\Parser\Lexer.ts" />
+    <TypeScriptCompile Include="CSharp\Parser\LexerCache.ts" />
+    <TypeScriptCompile Include="CSharp\Parser\Lexer_StringLiteral.ts" />
+    <TypeScriptCompile Include="CSharp\Parser\QuickScanner.ts" />
+    <TypeScriptCompile Include="CSharp\Parser\SlidingTextWindow.ts" />
+    <TypeScriptCompile Include="CSharp\Parser\SyntaxFactoryContext.ts" />
+    <TypeScriptCompile Include="CSharp\Parser\SyntaxListPool.ts" />
+    <TypeScriptCompile Include="CSharp\Parser\SyntaxParser.ResetPoint.ts" />
+    <TypeScriptCompile Include="CSharp\Parser\SyntaxParser.ts" />
+    <TypeScriptCompile Include="CSharp\SymbolDisplay\ObjectDisplay.ts" />
+    <TypeScriptCompile Include="CSharp\SymbolDisplay\SymbolDisplay.ts" />
+    <TypeScriptCompile Include="CSharp\Symbols\Source\AttributeLocation.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\BaseSyntaxNodeExtensions.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\CompilationUnitSyntax.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\CSharpLineDirectiveMap.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\CSharpPragmaWarningStateMap.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\CSharpSyntaxNode.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\CSharpSyntaxRewriter.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\CSharpSyntaxTree.Dummy.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\CSharpSyntaxTree.ParsedSyntaxTree.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\CSharpSyntaxTree.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\CSharpSyntaxVisitor.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\DirectiveTriviaSyntax.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\ChildSyntaxList.Enumerator.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\ChildSyntaxList.Reversed.Enumerator.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\ChildSyntaxList.Reversed.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\ChildSyntaxList.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\ContextAwareSyntax.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\DirectiveTriviaSyntax.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\IdentifierNameSyntax.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SeparatedSyntaxList.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SeparatedSyntaxListBuilder.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\StructuredTriviaSyntax.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\Syntax.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxDiagnosticInfoList.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxFirstTokenReplacer.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxLastTokenReplacer.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxList.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxList.WithLotsOfChildren.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxList.WithManyChildren.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxList.WithThreeChildren.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxList.WithTwoChildren.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxListBuilder.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxListBuilderExtensions.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxListBuilder`1.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxList`.Enumerator.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxList`1.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxNode.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxNodeCache.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxRewriter.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxToken.MissingTokenWithTrivia.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxToken.SyntaxIdentifier.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxToken.SyntaxIdentifierExtended.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxToken.SyntaxIdentifierWithTrailingTrivia.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxToken.SyntaxIdentifierWithTrivia.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxToken.SyntaxLiteral.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxToken.SyntaxLiteralWithTrivia.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxToken.SyntaxTokenWithTrivia.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxToken.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxTrivia.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\Internal\SyntaxVisitor.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SeparatedSyntaxListBuilder.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SimpleSyntaxReference.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\StructuredTriviaSyntax.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxEquivalence.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxFactory.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxFormatter.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxKind.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxKindFacts.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxList.SeparatedWithManyChildren.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxList.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxList.WithManyChildren.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxList.WithManyWeakChildren.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxList.WithThreeChildren.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxList.WithTwoChildren.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxListBuilder.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxListBuilderExtensions.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxListBuilder`1.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxNavigator.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxNodeExtensions.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxNodeOrTokenListBuilder.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxNodeRemover.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxReplacer.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxTokenListBuilder.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxTreeDiagnosticEnumerator.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxTriviaFunctions.ts" />
+    <TypeScriptCompile Include="CSharp\Syntax\SyntaxTriviaListBuilder.ts" />
+    <TypeScriptCompile Include="CSharp\Utilities\FunctionExtensions.ts" />
+    <TypeScriptCompile Include="CSharp\Utilities\StringExtensions.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="_TSOutput\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>Roslyn.CSharp.Parser</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2063</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:2063/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptOutFile>_TSOutput\Roslyn.CSharp.Parser.js</TypeScriptOutFile>
+    <TypeScriptGeneratesDeclarations>True</TypeScriptGeneratesDeclarations>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(ProjectDir)_TSOutput\Roslyn.CSharp.Parser.js" "$(SolutionDir)CSharpSyntaxVisualizer\Scripts" /y
+xcopy "$(ProjectDir)_TSOutput\Roslyn.CSharp.Parser.js.map" "$(SolutionDir)CSharpSyntaxVisualizer\Scripts" /y</PostBuildEvent>
+  </PropertyGroup>
+</Project>

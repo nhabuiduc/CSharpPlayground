@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{4563511A-E9CE-4CA0-AD8C-2AA47AEFCD45}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>1.4</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Global.ts" />
+    <TypeScriptCompile Include="System\ArgumentException.ts" />
+    <TypeScriptCompile Include="System\ArgumentNullException.ts" />
+    <TypeScriptCompile Include="System\ArgumentOutOfRangeException.ts" />
+    <TypeScriptCompile Include="System\Assembly.ts" />
+    <TypeScriptCompile Include="System\BitConverter.ts" />
+    <TypeScriptCompile Include="System\Collections\Comparer.ts" />
+    <TypeScriptCompile Include="System\Collections\Concurrent\ConcurrentDictionary.ts" />
+    <TypeScriptCompile Include="System\Collections\Concurrent\ConcurrentQueue.ts" />
+    <TypeScriptCompile Include="System\Collections\DictionaryEntry.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\ArraySortHelper.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\Comparer.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\Dictionary.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\EqualityComparer.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\HashSet.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\ICollection.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\IComparer.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\IDictionary.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\IEnumerable.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\IEnumerator.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\IEqualityComparer.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\IHashKeyCollection.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\ILIst.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\IReadonlyCollection.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\IReadonlyDictionary.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\IReadOnlyList.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\ISet.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\ISortKeyCollection.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\KeyValuePair.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\List.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\ObjectDictionary.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\Queue.ts" />
+    <TypeScriptCompile Include="System\Collections\Generic\Stack.ts" />
+    <TypeScriptCompile Include="System\Collections\ICollection.ts" />
+    <TypeScriptCompile Include="System\Collections\IComparer.ts" />
+    <TypeScriptCompile Include="System\Collections\IDictionaryEnumerator.ts" />
+    <TypeScriptCompile Include="System\Collections\IEnumerable.ts" />
+    <TypeScriptCompile Include="System\Collections\IEnumerator.ts" />
+    <TypeScriptCompile Include="System\Collections\IEqualityComparer.ts" />
+    <TypeScriptCompile Include="System\Collections\IList.ts" />
+    <TypeScriptCompile Include="System\Collections\Immutable\AllocFreeConcurrentStack.ts" />
+    <TypeScriptCompile Include="System\Collections\Immutable\DictionaryEnumerator.ts" />
+    <TypeScriptCompile Include="System\Collections\Immutable\DisposableEnumeratorAdapter`2.ts" />
+    <TypeScriptCompile Include="System\Collections\Immutable\EnumeratorAdapte`2r.ts" />
+    <TypeScriptCompile Include="System\Collections\Immutable\IBinaryTree.ts" />
+    <TypeScriptCompile Include="System\Collections\Immutable\IImmutableArray.ts" />
+    <TypeScriptCompile Include="System\Collections\Immutable\IImmutableDictionary.ts" />
+    <TypeScriptCompile Include="System\Collections\Immutable\IImmutableDictionaryInternal.ts" />
+    <TypeScriptCompile Include="System\Collections\Immutable\IImmutableList.ts" />
+    <TypeScriptCompile Include="System\Collections\Immutable\IImmutableListQueries.ts" />
+    <TypeScriptCompile Include="System\Collections\Immutable\IImmutableQueue.ts" />
+    <TypeScriptCompile Include="System\Collections\Immutable\IImmutableSet.ts" />
+    <TypeScriptCompile Include="System\Collections\Immutable\IImmutableStack.ts" />
+    <TypeScriptCompile Include="System\Collections\Immutable\ImmutableArray.ts" />
+    <TypeScriptCompile Include="System\Collections\Immutable\ImmutableDictionary.ts" />
+    <TypeScriptCompile Include="System\Collections\Immutable\ImmutableInterlocked.ts" />
+    <TypeScriptCompile Include="System\Collections\Immutable\ImmutableStack.ts" />
+    <TypeScriptCompile Include="System\Collections\Immutable\IStrongEnumerable.ts" />
+    <TypeScriptCompile Include="System\Collections\Immutable\IStrongEnumerator.ts" />
+    <TypeScriptCompile Include="System\Collections\Immutable\RefAsValueType.ts" />
+    <TypeScriptCompile Include="System\Collections\Immutable\SecureObjectPool.ts" />
+    <TypeScriptCompile Include="System\Collections\IStructuralComparable.ts" />
+    <TypeScriptCompile Include="System\Convert.ts" />
+    <TypeScriptCompile Include="System\Diagnostics\Contracts\Contract.ts" />
+    <TypeScriptCompile Include="System\Diagnostics\Debug.ts" />
+    <TypeScriptCompile Include="System\Diagnostics\Tracing\EventCommand.ts" />
+    <TypeScriptCompile Include="System\Diagnostics\Tracing\EventCommandEventArgs.ts" />
+    <TypeScriptCompile Include="System\Diagnostics\Tracing\EventKeywords.ts" />
+    <TypeScriptCompile Include="System\Diagnostics\Tracing\EventLevel.ts" />
+    <TypeScriptCompile Include="System\Diagnostics\Tracing\EventSource.ts" />
+    <TypeScriptCompile Include="System\Environment.ts" />
+    <TypeScriptCompile Include="System\EventArgs.ts" />
+    <TypeScriptCompile Include="System\Exception.ts" />
+    <TypeScriptCompile Include="System\Globalization\CharUnicodeInfo.ts" />
+    <TypeScriptCompile Include="System\Globalization\CultureInfo.ts" />
+    <TypeScriptCompile Include="System\Globalization\NumberStyles .ts" />
+    <TypeScriptCompile Include="System\Globalization\UnicodeCategory.ts" />
+    <TypeScriptCompile Include="System\Guid.ts" />
+    <TypeScriptCompile Include="System\IComparable.ts" />
+    <TypeScriptCompile Include="System\IDisposable.ts" />
+    <TypeScriptCompile Include="System\IEquatable.ts" />
+    <TypeScriptCompile Include="System\IFormatProvider.ts" />
+    <TypeScriptCompile Include="System\IFormattable.ts" />
+    <TypeScriptCompile Include="System\IndexOutOfRangeException.ts" />
+    <TypeScriptCompile Include="System\InvalidOperationException.ts" />
+    <TypeScriptCompile Include="System\IO\ArrayBufferStream.ts" />
+    <TypeScriptCompile Include="System\IO\BinaryReader.ts" />
+    <TypeScriptCompile Include="System\IO\BinaryWriter.ts" />
+    <TypeScriptCompile Include="System\IO\EndOfStreamException.ts" />
+    <TypeScriptCompile Include="System\IO\IOException.ts" />
+    <TypeScriptCompile Include="System\IO\MemoryStream.ts" />
+    <TypeScriptCompile Include="System\IO\SeekOrigin.ts" />
+    <TypeScriptCompile Include="System\IO\Stream.ts" />
+    <TypeScriptCompile Include="System\IO\StringWriter.ts" />
+    <TypeScriptCompile Include="System\IO\TextWriter.ts" />
+    <TypeScriptCompile Include="System\IO\__Error.ts" />
+    <TypeScriptCompile Include="System\KeyNotFoundException.ts" />
+    <TypeScriptCompile Include="System\Lazy.ts" />
+    <TypeScriptCompile Include="System\LineDirectiveMap.LineMappingEntry.ts" />
+    <TypeScriptCompile Include="System\Linq\Enumerable.ts" />
+    <TypeScriptCompile Include="System\Linq\ImmutableArrayExtensions.ts" />
+    <TypeScriptCompile Include="System\Linq\ImmutableExtensions.ts" />
+    <TypeScriptCompile Include="System\Math.ts" />
+    <TypeScriptCompile Include="System\NotImplementedException.ts" />
+    <TypeScriptCompile Include="System\NotSupportedException.ts" />
+    <TypeScriptCompile Include="System\ObjectDisposedException.ts" />
+    <TypeScriptCompile Include="System\OperationCanceledException.ts" />
+    <TypeScriptCompile Include="System\PrimitiveType.ts" />
+    <TypeScriptCompile Include="System\Random.ts" />
+    <TypeScriptCompile Include="System\Resources\ResourceManager.ts" />
+    <TypeScriptCompile Include="System\Runtime\CompilerServices\ConditionalWeakTable.ts" />
+    <TypeScriptCompile Include="System\Runtime\CompilerServices\RuntimeHelpers.ts" />
+    <TypeScriptCompile Include="System\String.ts" />
+    <TypeScriptCompile Include="System\StringComparer.ts" />
+    <TypeScriptCompile Include="System\StringComparison.ts" />
+    <TypeScriptCompile Include="System\SystemError.ts" />
+    <TypeScriptCompile Include="System\SystemException.ts" />
+    <TypeScriptCompile Include="System\Text\Encoding.ts" />
+    <TypeScriptCompile Include="System\Text\StringBuilder.ts" />
+    <TypeScriptCompile Include="System\Threading\CancellationToken.ts" />
+    <TypeScriptCompile Include="System\Threading\Volatile.ts" />
+    <TypeScriptCompile Include="System\Throwhelper.ts" />
+    <TypeScriptCompile Include="System\Type.ts" />
+    <TypeScriptCompile Include="System\UnauthorizedAccessException.ts" />
+    <TypeScriptCompile Include="System\WeakReference.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="_TSOutput\" />
+    <Folder Include="_TSReferences\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>Net.Bcl</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1999</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1999/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>True</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptGeneratesDeclarations>True</TypeScriptGeneratesDeclarations>
+    <TypeScriptOutFile>_TSOutput\Net.Bcl.js</TypeScriptOutFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(ProjectDir)_TSOutput\Net.Bcl.js" "$(SolutionDir)CSharpSyntaxVisualizer\Scripts" /y
+xcopy "$(ProjectDir)_TSOutput\Net.Bcl.js.map" "$(SolutionDir)CSharpSyntaxVisualizer\Scripts" /y</PostBuildEvent>
+  </PropertyGroup>
+</Project>

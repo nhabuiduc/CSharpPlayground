@@ -1,0 +1,1 @@
+﻿// SpecializedCollections.ts

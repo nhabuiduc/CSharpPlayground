@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>CSharp Playground </title>
+    <!-- Style -->
+
+    <link rel="stylesheet" href="Content/ya-treeview.css" type="text/css" />
+    <link rel="stylesheet" href="Content/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="Content/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="Content/app.css" type="text/css" />
+
+    <!-- Third Party -->
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/codemirror.js"></script>
+
+    <!-- Angular -->
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/ya-treeview-tpls.js"></script>
+    <script src="Scripts/ui-codemirror.min.js"></script>
+
+    <!-- Roslyn Syntax Parser -->
+    <script src="Scripts/Net.Bcl.js"></script>
+    <script src="Scripts/unicode-categories.js"></script>
+    <script src="Scripts/Roslyn.Core.Parser.js"></script>
+    <script src="Scripts/Roslyn.CSharp.Parser.js"></script>
+
+    <!-- Page -->
+    <script src="TypeScripts/AppService.js"></script>
+    <script src="TypeScripts/SyntaxTreeController.js"></script>
+    <script src="TypeScripts/CodeEditorController.js"></script>
+    <script src="app.js"></script>
+    <script>
+
+    </script>
+
+</head>
+<body ng-app="app">
+    <div>
+        <span style="font-size:30px;margin-left:10px;" >CSharp Playground</span> <span>(based on Roslyn project - CTP 5)</span>
+    </div>
+    
+    <hr style="clear:both;" />
+    <div id="content" style="margin:10px;height:100%" ng-controller="SyntaxTreeController">
+        <div>
+            <button id="btnShowTree" ng-click="showTree()"> Refresh Tree </button>
+        </div>
+        <div class="visual-tree-outer" id="tree-container">
+            <div ya-treeview ya-id="myTree" ya-model="model" ya-options="options" ya-context="context">
+                <span id="{{node.$model.id}}" ng-class="[node.$model.cssClass, context.selectedNodes.indexOf(node)>-1 ? 'selected' :'']">{{ node.$model.label }}</span>
+            </div>
+        </div>
+        <div class="source-code-outer" ng-controller="CodeEditorController">
+            <textarea ui-codemirror="cmOption" id="sourceCode" wrap="off" style="width:100%;height:100%;">
+                class A{
+                public void Method1(){}
+                }
+            </textarea>
+        </div>
+
+        <textarea id="errorBox" style="height:10%;width:100%; margin-top:10px;"></textarea>
+    </div>
+
+</body>
+</html>

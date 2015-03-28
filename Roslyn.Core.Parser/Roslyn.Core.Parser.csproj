@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{640D7BE6-7DBA-4B39-9B8D-D2EDF9346E36}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>1.4</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="..\Net.Bcl\_TSOutput\Net.Bcl.d.ts">
+      <Link>_TSReferences\Net.Bcl.d.ts</Link>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Core\CodeAnalysisResources.ts" />
+    <TypeScriptCompile Include="Core\Collections\ArrayBuilder.Enumerator.ts" />
+    <TypeScriptCompile Include="Core\Collections\ArrayBuilder.ts" />
+    <TypeScriptCompile Include="Core\Collections\ArrayBuilderExtensions.ts" />
+    <TypeScriptCompile Include="Core\Collections\ArrayElement.ts" />
+    <TypeScriptCompile Include="Core\Collections\CachingFactory.ts" />
+    <TypeScriptCompile Include="Core\Collections\ImmutableArrayExtensions.ts" />
+    <TypeScriptCompile Include="Core\Collections\PooledStringBuilder.ts" />
+    <TypeScriptCompile Include="Core\Compilation\ParseOptions.ts" />
+    <TypeScriptCompile Include="Core\Compilation\SourceReferenceResolver.ts" />
+    <TypeScriptCompile Include="Core\CryptographicHashProvider.ts" />
+    <TypeScriptCompile Include="Core\Diagnostic\CommonDiagnosticComparer.ts" />
+    <TypeScriptCompile Include="Core\Diagnostic\CommonMessageProvider.ts" />
+    <TypeScriptCompile Include="Core\Diagnostic\Diagnostic.ts" />
+    <TypeScriptCompile Include="Core\Diagnostic\DiagnosticBag.ts" />
+    <TypeScriptCompile Include="Core\Diagnostic\DiagnosticDescriptor.ts" />
+    <TypeScriptCompile Include="Core\Diagnostic\DiagnosticFormatter.ts" />
+    <TypeScriptCompile Include="Core\Diagnostic\DiagnosticInfo.ts" />
+    <TypeScriptCompile Include="Core\Diagnostic\DiagnosticSeverity.ts" />
+    <TypeScriptCompile Include="Core\Diagnostic\DiagnosticWithInfo.ts" />
+    <TypeScriptCompile Include="Core\Diagnostic\Diagnostic_SimpleDiagnostic.ts" />
+    <TypeScriptCompile Include="Core\Diagnostic\ExternalFileLocation.ts" />
+    <TypeScriptCompile Include="Core\Diagnostic\FileLinePositionSpan.ts" />
+    <TypeScriptCompile Include="Core\Diagnostic\IMessageSerializable.ts" />
+    <TypeScriptCompile Include="Core\Diagnostic\LocalizableResourceString.ts" />
+    <TypeScriptCompile Include="Core\Diagnostic\LocalizableString.ts" />
+    <TypeScriptCompile Include="Core\Diagnostic\Location.ts" />
+    <TypeScriptCompile Include="Core\Diagnostic\LocationKind.ts" />
+    <TypeScriptCompile Include="Core\Diagnostic\NoLocation.ts" />
+    <TypeScriptCompile Include="Core\Diagnostic\ReportDiagnostic.ts" />
+    <TypeScriptCompile Include="Core\Diagnostic\SourceLocation.ts" />
+    <TypeScriptCompile Include="Core\Diagnostic\WellKnownDiagnosticTags.ts" />
+    <TypeScriptCompile Include="Core\DocumentationMode.ts" />
+    <TypeScriptCompile Include="Core\Instrumentation\FunctionId.ts" />
+    <TypeScriptCompile Include="Core\Instrumentation\Logger.ts" />
+    <TypeScriptCompile Include="Core\Instrumentation\PerformanceGoals.ts" />
+    <TypeScriptCompile Include="Core\Instrumentation\RoslynCompilerEventSource.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\ArrayExtensions.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\ConsList`1.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\DocumentationCommentXmlNames.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\EnumerableExtensions.ComparisonComparer.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\EnumerableExtensions.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\ExceptionUtilities.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\Hash.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\HashAlgorithm.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\ImmutableArrayExtensions.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\KeyValuePair.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\ObjectPool`1.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\SpecializedCollections.Empty.Array.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\SpecializedCollections.Empty.Collection.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\SpecializedCollections.Empty.Dictionary.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\SpecializedCollections.Empty.Enumerable.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\SpecializedCollections.Empty.Enumerator.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\SpecializedCollections.Empty.Enumerator`1.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\SpecializedCollections.Empty.List.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\SpecializedCollections.Empty.Set.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\SpecializedCollections.Empty.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\SpecializedCollections.ReadOnly.Collection.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\SpecializedCollections.ReadOnly.Enumerable`1.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\SpecializedCollections.ReadOnly.Set.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\SpecializedCollections.Singleton.Collection`1.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\SpecializedCollections.Singleton.Enumerator`1.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\SpecializedCollections.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\StringExtensions.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\StringTable.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\TextChangeRangeExtensions.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\TextKeyedCache.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\ThreeState.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\ValueTuple.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\ValueTuple`2.ts" />
+    <TypeScriptCompile Include="Core\InternalUtilities\ValueTuple`3.ts" />
+    <TypeScriptCompile Include="Core\Serialization\ConcurrentRecordingObjectBinder.ts" />
+    <TypeScriptCompile Include="Core\Serialization\IObjectReadable.ts" />
+    <TypeScriptCompile Include="Core\Serialization\IObjectWritable.ts" />
+    <TypeScriptCompile Include="Core\Serialization\ObjectBinder.ts" />
+    <TypeScriptCompile Include="Core\Serialization\ObjectReader.ts" />
+    <TypeScriptCompile Include="Core\Serialization\ObjectReaderData.ts" />
+    <TypeScriptCompile Include="Core\Serialization\ObjectReaderWriterBase.ts" />
+    <TypeScriptCompile Include="Core\Serialization\ObjectWriter.ts" />
+    <TypeScriptCompile Include="Core\Serialization\ObjectWriterData.ts" />
+    <TypeScriptCompile Include="Core\Serialization\RecordingObjectBinder.ts" />
+    <TypeScriptCompile Include="Core\Serialization\SimpleRecordingObjectBinder.ts" />
+    <TypeScriptCompile Include="Core\SourceCodeKind.ts" />
+    <TypeScriptCompile Include="Core\SpecialType.ts" />
+    <TypeScriptCompile Include="Core\SymbolDisplay\ObjectDisplayExtensions.ts" />
+    <TypeScriptCompile Include="Core\SymbolDisplay\ObjectDisplayOptions.ts" />
+    <TypeScriptCompile Include="Core\Symbols\LanguageNames.ts" />
+    <TypeScriptCompile Include="Core\Symbols\WellKnownMemberNames.ts" />
+    <TypeScriptCompile Include="Core\Syntax\AbstractSyntaxNavigator.ts" />
+    <TypeScriptCompile Include="Core\Syntax\AbstractWarningStateMap.ts" />
+    <TypeScriptCompile Include="Core\Syntax\AnnotationExtensions.ts" />
+    <TypeScriptCompile Include="Core\Syntax\ChildSyntaxList.Enumerator.ts" />
+    <TypeScriptCompile Include="Core\Syntax\ChildSyntaxList.Reversed.ts" />
+    <TypeScriptCompile Include="Core\Syntax\ChildSyntaxList.ts" />
+    <TypeScriptCompile Include="Core\Syntax\GreenNode.ts" />
+    <TypeScriptCompile Include="Core\Syntax\GreenNodeExtensions.ts" />
+    <TypeScriptCompile Include="Core\Syntax\IStructuredTriviaSyntax.ts" />
+    <TypeScriptCompile Include="Core\Syntax\LineDirectiveMap.LineMappingEntry.ts" />
+    <TypeScriptCompile Include="Core\Syntax\LineDirectiveMap.ts" />
+    <TypeScriptCompile Include="Core\Syntax\LineVisibility.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SeparatedSyntaxList.Enumerator.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SeparatedSyntaxList.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxAnnotation.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxDiffer.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxList`1.Enumerator.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxList`1.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxNode.Iterators.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxNode.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxNodeExtensions.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxNodeExtensions_Tracking.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxNodeOrToken.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxNodeOrTokenList.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxReference.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxRemoveOptions.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxToken.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxTokenList.Enumerator.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxTokenList.Reversed.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxTokenList.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxTree.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxTreeExtensions.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxTrivia.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxTriviaList.Enumerator.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxTriviaList.Reversed.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxTriviaList.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxWalker.ts" />
+    <TypeScriptCompile Include="Core\Syntax\SyntaxWalkerDepth.ts" />
+    <TypeScriptCompile Include="Core\Syntax\TranslationSyntaxReference.ts" />
+    <TypeScriptCompile Include="Core\Text\ChangedText.ts" />
+    <TypeScriptCompile Include="Core\Text\CompositeText.ts" />
+    <TypeScriptCompile Include="Core\Text\LinePosition.ts" />
+    <TypeScriptCompile Include="Core\Text\LinePositionSpan.ts" />
+    <TypeScriptCompile Include="Core\Text\SourceHashAlgorithm.ts" />
+    <TypeScriptCompile Include="Core\Text\SourceText.ts" />
+    <TypeScriptCompile Include="Core\Text\SourceTextContainer.ts" />
+    <TypeScriptCompile Include="Core\Text\StringBuilderText.ts" />
+    <TypeScriptCompile Include="Core\Text\StringText.ts" />
+    <TypeScriptCompile Include="Core\Text\SubText.ts" />
+    <TypeScriptCompile Include="Core\Text\TextChange.ts" />
+    <TypeScriptCompile Include="Core\Text\TextChangeEventArgs.ts" />
+    <TypeScriptCompile Include="Core\Text\TextChangeRange.ts" />
+    <TypeScriptCompile Include="Core\Text\TextLine.ts" />
+    <TypeScriptCompile Include="Core\Text\TextLineCollection.ts" />
+    <TypeScriptCompile Include="Core\Text\TextSpan.ts" />
+    <TypeScriptCompile Include="Core\Text\TextUtilities.ts" />
+    <TypeScriptCompile Include="Core\Xml\XmlCharType.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="_TSOutput\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Libraries\unicode-categories.js" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>Roslyn.Core.Parser</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2056</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:2056/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>True</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptOutFile>_TSOutput\Roslyn.Core.Parser.js</TypeScriptOutFile>
+    <TypeScriptGeneratesDeclarations>True</TypeScriptGeneratesDeclarations>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /i "$(ProjectDir)_TSOutput\Roslyn.Core.Parser.js" "$(SolutionDir)CSharpSyntaxVisualizer\Scripts" /y
+xcopy /i "$(ProjectDir)_TSOutput\Roslyn.Core.Parser.js.map" "$(SolutionDir)CSharpSyntaxVisualizer\Scripts" /y
+xcopy /i "$(ProjectDir)Libraries\unicode-categories.js" "$(SolutionDir)CSharpSyntaxVisualizer\Scripts" /y</PostBuildEvent>
+  </PropertyGroup>
+</Project>
