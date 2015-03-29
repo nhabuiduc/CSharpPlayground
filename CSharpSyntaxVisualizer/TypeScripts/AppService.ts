@@ -6,7 +6,6 @@
     }
 
     public onCursorChange: (position: number) => void;
-    public onAllLoaded: () => void;
 
     public getSource(): string {
         return this.sourceCodeEditor.getSource();
@@ -22,6 +21,7 @@
 
 var app = angular.module('app', ['ya.treeview', 'ya.treeview.tpls', 'ui.codemirror']);
 app.service('appService', AppService);
+app.service('csharpSyntaxService', CSharpSyntaxService);
 
 class SourceCodeEditor {
     private codeMirror: CodeMirror.Editor;

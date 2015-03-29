@@ -28,7 +28,11 @@
     <script src="Scripts/Roslyn.CSharp.Parser.js"></script>
 
     <!-- Page -->
+    <script src="TypeScripts/Imports.js"></script>
+    <script src="TypeScripts/CSharpSyntaxService.js"></script>
+
     <script src="TypeScripts/AppService.js"></script>
+    <script src="TypeScripts/Tree-UI/TreeItem.js"></script>
     <script src="TypeScripts/SyntaxTreeController.js"></script>
     <script src="TypeScripts/CodeEditorController.js"></script>
     <script src="app.js"></script>
@@ -54,9 +58,27 @@
         </div>
         <div class="source-code-outer" ng-controller="CodeEditorController">
             <textarea ui-codemirror="cmOption" id="sourceCode" wrap="off" style="width:100%;height:100%;">
-                class A{
-                public void Method1(){}
-                }
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PilotProject
+{
+    /// &lt;summary&gt;
+    /// First class
+    /// &lt;/summary&gt;
+    [Serializable]
+    public class FirstClass
+    {        
+        public static int Main(params string[] args)
+        {
+            return 0;
+        }
+    }
+}
+
             </textarea>
         </div>
 

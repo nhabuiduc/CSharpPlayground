@@ -85,7 +85,12 @@
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="TypeScripts\AppService.ts" />
     <TypeScriptCompile Include="TypeScripts\CodeEditorController.ts" />
+    <TypeScriptCompile Include="TypeScripts\CSharpSyntaxService.ts" />
+    <TypeScriptCompile Include="TypeScripts\Imports.ts" />
     <TypeScriptCompile Include="TypeScripts\SyntaxTreeController.ts" />
+    <TypeScriptCompile Include="TypeScripts\Tree-UI\TreeContext.ts" />
+    <TypeScriptCompile Include="TypeScripts\Tree-UI\TreeItem.ts" />
+    <TypeScriptCompile Include="TypeScripts\Tree-UI\VirtualTreeItem.ts" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
