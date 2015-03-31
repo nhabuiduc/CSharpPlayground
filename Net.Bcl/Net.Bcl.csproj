@@ -146,6 +146,7 @@
     <TypeScriptCompile Include="System\Type.ts" />
     <TypeScriptCompile Include="System\UnauthorizedAccessException.ts" />
     <TypeScriptCompile Include="System\WeakReference.ts" />
+    <TypeScriptCompile Include="TSArray.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="_TSOutput\" />

@@ -5856,6 +5856,7 @@ module Microsoft.CodeAnalysis.CSharp.Syntax {
         constructor() { super(); }
         ctor_7247(green: Microsoft.CodeAnalysis.CSharp.Syntax.InternalSyntax.CSharpSyntaxNode, parent: SyntaxNode, position: number): ReturnStatementSyntax {
             super.ctor_9341(green, parent, position); return this;
+            debugger;
         }
 
         public get ReturnKeyword(): SyntaxToken {

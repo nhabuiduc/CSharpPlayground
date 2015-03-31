@@ -1,22 +1,22 @@
 ﻿class AppService {
     private sourceCodeEditor = new SourceCodeEditor();
-
     public setCodeMirror(codeMirror: CodeMirror.Editor) {
         this.sourceCodeEditor.setCodeMirror(codeMirror);
     }
 
     public onCursorChange: (position: number) => void;
+    public onNodeSelectionChanged: (start: number, end: number) => void;
 
     public getSource(): string {
         return this.sourceCodeEditor.getSource();
     }
     public SetSelection(start: number, end: number) {
-        this.sourceCodeEditor.SetSelection(start, end);
+        this.onNodeSelectionChanged(start, end);
     }
-     public setErrorText(text: string) {
-         var $errorBox = $("#errorBox");
-         $errorBox.val(text);
-     }
+    public setErrorText(text: string) {
+        var $errorBox = $("#errorBox");
+        $errorBox.val(text);
+    }
 }
 
 var app = angular.module('app', ['ya.treeview', 'ya.treeview.tpls', 'ui.codemirror']);
@@ -32,12 +32,5 @@ class SourceCodeEditor {
     }
     public getSource(): string {
         return this.codeDoc.getValue();
-    }
-    
-    public SetSelection(start: number, end: number) {
-        
-        var posStart = this.codeDoc.posFromIndex(start);
-        var posEnd = this.codeDoc.posFromIndex(end);
-        this.codeDoc.setSelection(posStart, posEnd);        
     }
 }

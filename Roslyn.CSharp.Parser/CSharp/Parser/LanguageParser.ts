@@ -207,8 +207,8 @@ module Microsoft.CodeAnalysis.CSharp.Syntax.InternalSyntax {
             {
                 var hitStackBoundary = false;
                 var resetPoint = this.GetResetPoint_LanguageParser();
-                try
-                {
+                //try
+                //{
                     var tmp_ref0 = { refObj: tmp };
                     var body_ref1 = { refObj: body };
                     var initialBadNodes_ref2 = { refObj: initialBadNodes };
@@ -219,10 +219,10 @@ module Microsoft.CodeAnalysis.CSharp.Syntax.InternalSyntax {
                     body = body_ref1.refObj;
 
                     initialBadNodes = initialBadNodes_ref2.refObj;;
-                }
-                catch (ex) {
-                    hitStackBoundary = true;
-                }
+                //}
+                //catch (ex) {
+                //    hitStackBoundary = true;
+                //}
 
                 var result: CompilationUnitSyntax;
                 if (hitStackBoundary) {

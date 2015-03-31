@@ -190,10 +190,10 @@
                     return previousNode;
                 }
 
-                if (slot.refObj == previousWeakReference) {
-                    slot.refObj = previousWeakReference;
-                    return newNode;
-                }
+                //  if (slot.refObj == previousWeakReference) {
+                slot.refObj = newWeakReference;
+                return newNode;
+                // }
 
                 //if ((() => {
                 //    var slot_ref0 = { refObj: slot.refObj };
@@ -557,8 +557,7 @@
                 return null;
             }
             var annotations = this.Green.GetAnnotations_1741();
-            if (annotations != null && annotations.length > 0)
-            {
+            if (annotations != null && annotations.length > 0) {
                 return <T>(GreenNodeExtensions.WithAdditionalAnnotationsGreen(node.Green,
                     annotations)).CreateRed_5702();
             }
@@ -922,7 +921,7 @@
             public TryGetNextInSpan(span: { refObj: Text.TextSpan }, value: { refObj: SyntaxNodeOrToken }): boolean {
                 value.refObj = structDefault(SyntaxNodeOrToken);
                 while (this.stack[this.stackPtr].TryMoveNextAndGetCurrent(value)) {
-                    if (SyntaxNode. IsInSpan(span, value.refObj.FullSpan)) {
+                    if (SyntaxNode.IsInSpan(span, value.refObj.FullSpan)) {
                         return true;
                     }
                 }
@@ -954,9 +953,9 @@
                 }
             }
             public Dispose(): void {
-                if (this.stack != null && this.stack.length < 256)
-                {
-                    TSArray.Clear(this.stack, 0, this.stack.length);
+                if (this.stack != null && this.stack.length < 256) { 
+                    // does not need to clear here
+                    //TSArray.Clear(this.stack, 0, this.stack.length);
                     ChildSyntaxListEnumeratorStack.StackPool.Free(this.stack);
                 }
             }
@@ -1001,8 +1000,7 @@
             }
             public Dispose(): void {
                 //if (this.stack ?.length < 256)
-                if (this.stack != null && this.stack.length < 256) 
-                {
+                if (this.stack != null && this.stack.length < 256) {
                     TSArray.Clear(this.stack, 0, this.stack.length);
                     TriviaListEnumeratorStack.StackPool.Free(this.stack);
                 }
