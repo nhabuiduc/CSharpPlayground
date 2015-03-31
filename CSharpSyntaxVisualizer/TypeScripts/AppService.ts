@@ -1,11 +1,15 @@
 ﻿class AppService {
+    // fields
     private sourceCodeEditor = new SourceCodeEditor();
+
+    // events
+    public onCursorChange: (position: number) => void;
+    public onNodeSelectionChanged: (start: number, end: number) => void;
+
+    // public methods
     public setCodeMirror(codeMirror: CodeMirror.Editor) {
         this.sourceCodeEditor.setCodeMirror(codeMirror);
     }
-
-    public onCursorChange: (position: number) => void;
-    public onNodeSelectionChanged: (start: number, end: number) => void;
 
     public getSource(): string {
         return this.sourceCodeEditor.getSource();
