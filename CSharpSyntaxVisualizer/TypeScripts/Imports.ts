@@ -1,4 +1,5 @@
-﻿import CSharp = Microsoft.CodeAnalysis.CSharp;
+﻿module Playground.Highlight { var a; }
+import CSharp = Microsoft.CodeAnalysis.CSharp;
 import Core = Microsoft.CodeAnalysis;
 import Linq = System.Linq;
 import SGenerics = System.Collections.Generic;
