@@ -28,6 +28,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\codemirror.css" />
+    <Content Include="Content\syntax-highlight.css" />
     <Content Include="Content\ya-treeview.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Icon.png" />
@@ -41,6 +42,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <None Include="DesktopExport.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -87,6 +89,7 @@
     <TypeScriptCompile Include="TypeScripts\CodeEditorController.ts" />
     <TypeScriptCompile Include="TypeScripts\CSharpSyntaxService.ts" />
     <TypeScriptCompile Include="TypeScripts\Highlight\HighlightCssMapping.ts" />
+    <TypeScriptCompile Include="TypeScripts\Highlight\HighlightSpan.ts" />
     <TypeScriptCompile Include="TypeScripts\Highlight\HighlightSyntaxKind.ts" />
     <TypeScriptCompile Include="TypeScripts\Highlight\HighlightWalker.ts" />
     <TypeScriptCompile Include="TypeScripts\Imports.ts" />
@@ -124,8 +127,9 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptOutFile>Scripts/CSharpSyntaxVisualizer.js</TypeScriptOutFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <TypeScriptRemoveComments>true</TypeScriptRemoveComments>

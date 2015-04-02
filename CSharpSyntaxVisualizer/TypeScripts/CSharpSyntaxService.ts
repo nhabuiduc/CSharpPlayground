@@ -40,22 +40,36 @@ class CSharpSyntaxService {
         return this.lastTree;
     }
 
-    public GetNodesFromChange(span: Core.Text.TextSpan): void {
-        var tokens = this.lastTree.GetRoot().DescendantTokens_9576(span);
-        var enumerator = tokens.GetEnumerator();
-        try {
-            
-            while (enumerator.MoveNext()) {
-                var token = enumerator.Current;
-                var lineSpan = token.GetLocation().GetLineSpan();
-               // this.onSyntaxHighlight(
-            }
-        } finally {
-            enumerator.Dispose();
-        }
+
+    public GetTokensFromSpan(from: number, length: number): Playground.Highlight.HighlightSpan[]{
+        var span = new Core.Text.TextSpan().ctor_1506(from, length);
+        var result = this.lastTree.GetRoot().DescendantTokens_9576(span);
+        return this.ConvertToHighlightSpans(result);
+
     }
 
-    // private methods
+    // private methods    
+    private ConvertToHighlightSpans(tokens: SGenerics.IEnumerable<Core.SyntaxToken>): PHighlight.HighlightSpan[]{
+        var arr: PHighlight.HighlightSpan[] = [];
+        _foreach(tokens,(token) => {
+            if (CSharp.CSharpExtensions.IsKeyword(token)) {
+                arr.push(this.CreateSpan(token, PHighlight.HighlightSyntaxKind.Keyword));                
+            }
+
+            if (token.RawKind == CSharp.SyntaxKind.IdentifierToken) {
+                if (token.Parent instanceof CSharp.Syntax.ClassDeclarationSyntax) {
+                    arr.push(this.CreateSpan(token, PHighlight.HighlightSyntaxKind.ClassName));  
+                }
+            }
+            
+        });
+
+        return arr;
+    }    
+
+    private CreateSpan(token: Core.SyntaxToken, kind: PHighlight.HighlightSyntaxKind) {
+        return new Playground.Highlight.HighlightSpan(token.Span.Start, token.Span.Length, kind);
+    }
 
     private ApplyChangedOnSource(): void {
         var source = this.lastSourceCode;

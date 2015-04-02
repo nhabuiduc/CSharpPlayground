@@ -15,7 +15,11 @@ function InitArray<T>(typeStruct: { prototype: T }, arr: Array<any>): void {
     } else if (typeStruct === <any>TSChar) {
         defaultValue = '';
     } else {
-        defaultValue = structDefault(typeStruct);
+        for (var i = 0; i < arr.length; i++) {
+            arr[i] = structDefault(typeStruct);
+        }
+
+        return;
     }
     for (var i = 0; i < arr.length; i++) {
         arr[i] = defaultValue;

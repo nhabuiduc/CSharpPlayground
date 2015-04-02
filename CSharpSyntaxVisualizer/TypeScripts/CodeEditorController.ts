@@ -1,7 +1,9 @@
-﻿module Playground {
+﻿///<reference path="AppService.ts"/>
+module Playground {
     export class CodeEditorController {
         private editor: CodeMirror.Editor;
         private doc: CodeMirror.Doc;
+        private lastTree: Core.SyntaxTree;
         constructor(private $scope, private appService: AppService, private csharpSyntaxService: CSharpSyntaxService) {
 
             this.appService.onNodeSelectionChanged = this.handleNodeSelectionChanged.bind(this);
@@ -10,6 +12,25 @@
                 indentWithTabs: true,
                 onLoad: this.handleEditorLoad.bind(this)
             };
+
+            $scope.highlightClick = this.highlightSyntax.bind(this);
+
+            //setInterval(this.highlightSyntax.bind(this), 1000);
+        }
+
+        private highlightSyntax(): void {
+            var code = this.appService.getSource();
+
+            var tokens = this.csharpSyntaxService.GetTokensFromSpan(0, code.length);
+
+            for (var i = 0; i < tokens.length; i++) {
+                var token = tokens[i];
+                var css = Playground.Mapping.highlightCss[token.Kind];
+                var start = this.doc.posFromIndex(token.Start);
+                var end = this.doc.posFromIndex(token.Start + token.Length);
+                this.doc.markText(start, end, { className: css });                
+
+            }
         }
 
         private handleEditorLoad(editor: CodeMirror.Editor): void {

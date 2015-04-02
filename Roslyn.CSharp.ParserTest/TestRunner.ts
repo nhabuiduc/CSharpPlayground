@@ -1,0 +1,1 @@
+﻿declare function Run(testClass: any): void;

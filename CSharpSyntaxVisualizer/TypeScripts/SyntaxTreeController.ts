@@ -1,4 +1,5 @@
-﻿module Playground {
+﻿///<reference path="AppService.ts"/>
+module Playground {
     export class SyntaxTreeController {
 
         private lastTree: Core.SyntaxTree;
@@ -141,8 +142,7 @@
                 return null;
             }
 
-            if (current.$model.fullSpan === void 0 || current.$model.fullSpan.Contains_2103(position)) {
-                //current.collapsed = true;
+            if (current.$model.fullSpan === void 0 || current.$model.fullSpan.Contains_2103(position)) {                
                 this.getContext().selectedNodes.push(current);
                 if (current.$children) {
                     this.getContext().expand(null, current);

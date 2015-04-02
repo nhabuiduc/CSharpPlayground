@@ -32,6 +32,19 @@ function __ToString(obj: any): string {
     return obj.toString();
 }
 
+function _foreach<T>(source: System.Collections.Generic.IEnumerable<T>, func: (_: T) => void): void {
+    var enumerator = source.GetEnumerator();
+    try {
+        while (enumerator.MoveNext()) {
+            var current = enumerator.Current;
+            func(current);
+        }
+    }
+    finally {
+        enumerator.Dispose();
+    }
+}
+
 // it may be fixed in Typescript 1.5
 function __unWrapArray(arr: any[]): any {
     if (arr.length == 1 && arr[0] instanceof Array) {
@@ -449,7 +462,7 @@ class Gb {
     }
 
     public static StringFromCharArray(arr: string[], start: number, length: number) {
-       
+
         if (length > arr.length - start) {
             length = arr.length - start;
         }

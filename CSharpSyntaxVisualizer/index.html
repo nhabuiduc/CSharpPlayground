@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="Content/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="Content/codemirror.css" type="text/css" />
     <link rel="stylesheet" href="Content/app.css" type="text/css" />
+    <link rel="stylesheet" href="Content/syntax-highlight.css" type="text/css" />
 
     <!-- Third Party -->
     <script src="Scripts/jquery-1.9.1.min.js"></script>
@@ -28,14 +29,15 @@
     <script src="Scripts/Roslyn.CSharp.Parser.js"></script>
 
     <!-- Page -->
-    <script src="TypeScripts/Imports.js"></script>
+    <script src="Scripts/CSharpSyntaxVisualizer.js"></script>
+    <!--<script src="TypeScripts/Imports.js"></script>
     <script src="TypeScripts/CSharpSyntaxService.js"></script>
 
     <script src="TypeScripts/AppService.js"></script>
     <script src="TypeScripts/Tree-UI/TreeItem.js"></script>
     <script src="TypeScripts/SyntaxTreeController.js"></script>
     <script src="TypeScripts/CodeEditorController.js"></script>
-    <script src="app.js"></script>
+    <script src="app.js"></script>-->
     <script>
 
     </script>
@@ -45,18 +47,17 @@
     <div>
         <span style="font-size:30px;margin-left:10px;" >CSharp Playground</span> <span>(based on Roslyn project - CTP 5)</span>
     </div>
-    
+   
     <hr style="clear:both;" />
     <div id="content" style="margin:10px;height:100%" ng-controller="SyntaxTreeController">
-        <div>
-            <button id="btnShowTree" ng-click="showTree()"> Refresh Tree </button>
-        </div>
+        
         <div class="visual-tree-outer" id="tree-container">
             <div ya-treeview ya-id="myTree" ya-model="model" ya-options="options" ya-context="context">
                 <span id="{{node.$model.id}}" ng-class="[node.$model.cssClass, context.selectedNodes.indexOf(node)>-1 ? 'selected' :'']">{{ node.$model.label }}</span>
             </div>
         </div>
         <div class="source-code-outer" ng-controller="CodeEditorController">
+            <button ng-click="highlightClick()" >Highlight</button>
             <textarea ui-codemirror="cmOption" id="sourceCode" wrap="off" style="width:100%;height:100%;">
 using System;
 using System.Collections.Generic;
@@ -81,7 +82,7 @@ namespace PilotProject
 
             </textarea>
         </div>
-
+        <hr style="clear:both;" />
         <textarea id="errorBox" style="height:10%;width:100%; margin-top:10px;"></textarea>
     </div>
 

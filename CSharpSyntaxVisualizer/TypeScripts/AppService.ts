@@ -1,4 +1,7 @@
-﻿class AppService {
+﻿///<reference path="Imports.ts"/>
+///<reference path="CSharpSyntaxService.ts"/>
+///<reference path="Tree-UI/TreeItem.ts"/>
+class AppService {
     // fields
     private sourceCodeEditor = new SourceCodeEditor();
 

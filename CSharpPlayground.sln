@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpSyntaxVisualizer", "C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{12C7225C-DD84-45AA-A477-54EF925FCF6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roslyn.CSharp.ParserTest", "Roslyn.CSharp.ParserTest\Roslyn.CSharp.ParserTest.csproj", "{1560CABB-D60D-4FF3-8427-440B196ABDC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{6E1532ED-0EED-4DAD-A745-276B21C66D7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E1532ED-0EED-4DAD-A745-276B21C66D7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E1532ED-0EED-4DAD-A745-276B21C66D7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1560CABB-D60D-4FF3-8427-440B196ABDC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1560CABB-D60D-4FF3-8427-440B196ABDC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1560CABB-D60D-4FF3-8427-440B196ABDC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1560CABB-D60D-4FF3-8427-440B196ABDC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,5 +75,6 @@ Global
 		{C7F5EA97-5EB7-41C9-A5C0-38B0FDAE805A} = {4FEC7FB3-4F4F-4BD9-94E5-7E5C9BA296B2}
 		{6FF3FF92-07ED-41E5-ABDD-3C0AF61DA0C2} = {4FEC7FB3-4F4F-4BD9-94E5-7E5C9BA296B2}
 		{6E1532ED-0EED-4DAD-A745-276B21C66D7E} = {E8A9CA32-46C0-4C9F-9066-2E9B9CF3E377}
+		{1560CABB-D60D-4FF3-8427-440B196ABDC0} = {9B63A2E1-246A-46D6-B630-AFDBA5EC74CF}
 	EndGlobalSection
 EndGlobal
