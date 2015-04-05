@@ -18,7 +18,7 @@
  .Input your C# sourcecode to see Syntax tree refreshed
  .Click on any text, it will navigate to corresponding Node in Tree  
 
-3 . Roadmap
+3 . Roadmap:  
   . Create library to convert c# code into typescript code (partialy done, source is not available yet, because it's not clean and mess up with a lot hacks and tricks for specific Roslyn code).   
   . Convert c# Syntax parser part in Roslyn into typescript (done for version ctp5).   
   . Create csharp syntax visualizer tool online as in Roslyn (done).   
