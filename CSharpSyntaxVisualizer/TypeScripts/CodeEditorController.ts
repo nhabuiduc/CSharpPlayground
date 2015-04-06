@@ -13,21 +13,21 @@ module Playground {
                 onLoad: this.handleEditorLoad.bind(this),                
             };
 
-            $scope.highlightClick = this.highlightSyntax.bind(this);
+            //$scope.highlightClick = this.highlightSyntax.bind(this);
         }
 
-        private highlightSyntax(): void {
-            var code = this.appService.getSource();
+        //private highlightSyntax(): void {
+        //    var code = this.appService.getSource();
 
-            var tokens = this.csharpSyntaxService.GetTokensFromSpan(0, code.length);
-            for (var i = 0; i < tokens.length; i++) {
-                var token = tokens[i];
-                var css = Playground.Mapping.highlightCss[token.Kind];
-                var start = this.doc.posFromIndex(token.Start);
-                var end = this.doc.posFromIndex(token.Start + token.Length);
-                this.doc.markText(start, end, { className: css });                
-            }
-        }
+        //    var tokens = this.csharpSyntaxService.GetTokensFromSpan(0, code.length);
+        //    for (var i = 0; i < tokens.length; i++) {
+        //        var token = tokens[i];
+        //        var css = Playground.Mapping.highlightCss[token.Kind];
+        //        var start = this.doc.posFromIndex(token.Start);
+        //        var end = this.doc.posFromIndex(token.Start + token.Length);
+        //        this.doc.markText(start, end, { className: css });                
+        //    }
+        //}
 
         private handleEditorLoad(editor: CodeMirror.Editor): void {
             this.appService.setCodeMirror(editor);

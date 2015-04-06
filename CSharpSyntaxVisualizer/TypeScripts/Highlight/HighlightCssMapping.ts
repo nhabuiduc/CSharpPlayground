@@ -7,8 +7,13 @@ module Playground {
         }
     }
 
-    Mapping.highlightCss[Playground.Highlight.HighlightSyntaxKind.Keyword] = 'keyword';
-    Mapping.highlightCss[Playground.Highlight.HighlightSyntaxKind.ClassName] = 'class';       
+    Mapping.highlightCss[Highlight.HighlightSyntaxKind.Keyword] = 'keyword';
+    Mapping.highlightCss[Highlight.HighlightSyntaxKind.ClassName] = 'class';
+    Mapping.highlightCss[Highlight.HighlightSyntaxKind.Constructor] = 'constructor1';        
+
+    Mapping.highlightCss[Highlight.HighlightSyntaxKind.Comment] = 'comment';
+    Mapping.highlightCss[Highlight.HighlightSyntaxKind.XmlComment] = 'xml-comment';
+    Mapping.highlightCss[Highlight.HighlightSyntaxKind.String] = 'string';
 }
 
 module Playground.Highlight {

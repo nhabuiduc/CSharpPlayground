@@ -11,8 +11,15 @@
             var begin = start;
             _foreach(tokenSpans, ts => {
                 var style = Playground.Mapping.getHighlight(ts.Kind);
-                st.push(ts.Start + ts.Length - start, style);
+                var end = ts.Start + ts.Length - start;
+                if (!style && st.length > 1 && !st[st.length - 1]) {
+                    st[st.length - 2] = end;
+                    return;
+                }
+                st.push(end, style);
             }); 
+
+            // make sure the last tokens need to be set
             if (st.length == 1 || st[st.length - 2] < length) {
                 st.push(length, null);
             }

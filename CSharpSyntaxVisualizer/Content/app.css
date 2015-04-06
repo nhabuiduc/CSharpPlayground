@@ -2,6 +2,7 @@
     font-family: 'Segoe UI', sans-serif;
     height: 100%;
     margin: auto;
+    overflow:hidden;
 }
 
 span {
@@ -29,7 +30,7 @@ span {
     border-color: black;
     border-style: solid;
     overflow: scroll;
-     height:70%;
+     height:85%;
     top: 10px;
     bottom: 10px;
 }
@@ -41,7 +42,7 @@ span {
     border-width: 1px;
     border-color: black;
     border-style: solid;
-    height:70%;
+    height:85%;
     top: 10px;
     bottom: 10px;
 }

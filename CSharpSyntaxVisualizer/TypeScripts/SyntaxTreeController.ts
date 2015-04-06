@@ -16,7 +16,7 @@ module Playground {
                 onExpand: this.handleNodeExpanded.bind(this)
             };
 
-            setInterval(this.refreshTree.bind(this), 500);
+            setInterval(this.refreshTree.bind(this), 1500);
             appService.onCursorChange = this.handleSourceCursorChanged.bind(this);
             this.initializeTree();
         }

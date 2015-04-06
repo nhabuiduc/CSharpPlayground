@@ -51,37 +51,148 @@ class CSharpSyntaxService {
     }
 
 
-    public GetTokensFromSpan(from: number, length: number): Playground.Highlight.HighlightSpan[]{
+    public GetTokensFromSpan(from: number, length: number): Playground.Highlight.HighlightSpan[] {
         var span = new Core.Text.TextSpan().ctor_1506(from, length);
         var result = this.GetTree().GetRoot().DescendantTokens_9576(span);
-        return this.ConvertToHighlightSpans(result);
+        var arr: PHighlight.HighlightSpan[] = [];
+        this.ConvertToHighlightSpans(result, span, arr);
+        return arr;
 
     }
 
-    // private methods    
-    private ConvertToHighlightSpans(tokens: SGenerics.IEnumerable<Core.SyntaxToken>): PHighlight.HighlightSpan[]{
-        var arr: PHighlight.HighlightSpan[] = [];
-        _foreach(tokens,(token) => {
-            if (CSharp.CSharpExtensions.IsKeyword(token)) {
-                arr.push(this.CreateSpan(token, PHighlight.HighlightSyntaxKind.Keyword));                
+    // private methods  
+
+    private HandleHighlightToken(token: Core.SyntaxToken, fullSpan: Core.Text.TextSpan,
+        arr: PHighlight.HighlightSpan[]): void {
+        if (!fullSpan.IntersectsWith_1989(token.Span)) {
+            return;
+        }
+
+        if (CSharp.CSharpExtensions.IsKeyword(token)) {
+            arr.push(this.CreateSpan(token.Span, PHighlight.HighlightSyntaxKind.Keyword));
+            return;
+        }
+
+        if (token.RawKind == CSharp.SyntaxKind.StringLiteralToken
+            || token.RawKind == CSharp.SyntaxKind.InterpolatedStringStartToken
+            || token.RawKind == CSharp.SyntaxKind.InterpolatedStringMidToken
+            || token.RawKind == CSharp.SyntaxKind.InterpolatedStringEndToken) {
+            arr.push(this.CreateSpan(token.Span, PHighlight.HighlightSyntaxKind.String));
+            return;
+        }
+
+        if (token.RawKind == CSharp.SyntaxKind.IdentifierToken) {
+            if (token.Parent instanceof CSharp.Syntax.ConstructorDeclarationSyntax) {
+                arr.push(this.CreateSpan(token.Span, PHighlight.HighlightSyntaxKind.Constructor));
+                return;
+            }
+            if (token.Text == "var"
+                && token.Parent instanceof CSharp.Syntax.IdentifierNameSyntax
+                && !(token.Parent.Parent instanceof CSharp.Syntax.QualifiedNameSyntax)) {
+                arr.push(this.CreateSpan(token.Span, PHighlight.HighlightSyntaxKind.Keyword));
+                return;
+            }
+            if (token.Parent instanceof CSharp.Syntax.TypeDeclarationSyntax
+                || token.Parent instanceof CSharp.Syntax.EnumDeclarationSyntax) {
+                arr.push(this.CreateSpan(token.Span, PHighlight.HighlightSyntaxKind.ClassName));
                 return;
             }
 
-            if (token.RawKind == CSharp.SyntaxKind.IdentifierToken) {
-                if (token.Parent instanceof CSharp.Syntax.ClassDeclarationSyntax) {
-                    arr.push(this.CreateSpan(token, PHighlight.HighlightSyntaxKind.ClassName));  
-                    return;
-                }                
+            if (this.IsOnlyIdentifierOrLastInQualifiedName(token)) {
+                arr.push(this.CreateSpan(token.Span, PHighlight.HighlightSyntaxKind.ClassName));
+                return;
+            }
+        }
+
+        arr.push(this.CreateSpan(token.Span, PHighlight.HighlightSyntaxKind.None));
+    }
+
+    private IsOnlyIdentifierOrLastInQualifiedName(token: Core.SyntaxToken): boolean {
+        
+        var childOutermostNode: Core.SyntaxNode ;
+        if (token.Parent instanceof CSharp.Syntax.IdentifierNameSyntax
+            && !(token.Parent.Parent instanceof CSharp.Syntax.QualifiedNameSyntax))
+        {
+            childOutermostNode = token.Parent;
+        }
+
+        if (!childOutermostNode) {
+            var qualifiedName = <CSharp.Syntax.QualifiedNameSyntax>token.Parent.Parent;
+            if (qualifiedName.Right != token.Parent) {
+                return false;
             }
 
-            arr.push(this.CreateSpan(token, PHighlight.HighlightSyntaxKind.None));  
+            if (qualifiedName.Parent instanceof CSharp.Syntax.QualifiedNameSyntax) {
+                return false;
+            }
+            childOutermostNode = qualifiedName;
+        }
+        var outermostNode: Core.SyntaxNode = childOutermostNode.Parent;
+        if (outermostNode instanceof CSharp.Syntax.PropertyDeclarationSyntax
+            || outermostNode instanceof CSharp.Syntax.VariableDeclarationSyntax
+            || outermostNode instanceof CSharp.Syntax.AttributeSyntax
+            || outermostNode instanceof CSharp.Syntax.ObjectCreationExpressionSyntax) {
+            return true;
+        }
+        if (outermostNode instanceof CSharp.Syntax.ForEachStatementSyntax) {
+            return (<CSharp.Syntax.ForEachStatementSyntax>outermostNode).Type == childOutermostNode;
+        }
+
+        return false;
+    }
+
+    //private OutOfQualifiedName(token: Core.SyntaxToken): Core.SyntaxNode
+    //{
+    //    var result = token.Parent.Parent;
+    //    while (result instanceof CSharp.Syntax.QualifiedNameSyntax) {
+    //        result = result.Parent;
+    //    }
+    //    return result;
+    //}
+
+    private HandleHighlightTrivia(trivia: Core.SyntaxTrivia, fullSpan: Core.Text.TextSpan,
+        arr: PHighlight.HighlightSpan[]): void {
+        if (!fullSpan.IntersectsWith_1989(trivia.Span)) {
+            return;
+        }
+
+        if (trivia.HasStructure) {
+            var structure = trivia.GetStructure();
+            if (structure instanceof CSharp.Syntax.DocumentationCommentTriviaSyntax) {
+                arr.push(this.CreateSpan(structure.Span, PHighlight.HighlightSyntaxKind.XmlComment));
+            }
+        }
+
+        if (trivia.RawKind == CSharp.SyntaxKind.SingleLineCommentTrivia
+            || trivia.RawKind == CSharp.SyntaxKind.MultiLineCommentTrivia) {
+            arr.push(this.CreateSpan(trivia.Span, PHighlight.HighlightSyntaxKind.Comment));
+        }
+    }
+
+    private ConvertToHighlightSpans(tokens: SGenerics.IEnumerable<Core.SyntaxToken>,
+        fullSpan: Core.Text.TextSpan, arr: PHighlight.HighlightSpan[])
+        : PHighlight.HighlightSpan[] {
+        _foreach(tokens,(token) => {
+            if (token.HasLeadingTrivia) {
+                _foreach(token.LeadingTrivia, trivia => {
+                    this.HandleHighlightTrivia(trivia, fullSpan, arr);
+                });
+            }
+
+            var hlToken = this.HandleHighlightToken(token, fullSpan, arr);
+
+            if (token.HasTrailingTrivia) {
+                _foreach(token.TrailingTrivia, trivia => {
+                    this.HandleHighlightTrivia(trivia, fullSpan, arr);
+                });
+            }
         });
 
         return arr;
-    }    
+    }
 
-    private CreateSpan(token: Core.SyntaxToken, kind: PHighlight.HighlightSyntaxKind) {
-        return new Playground.Highlight.HighlightSpan(token.Span.Start, token.Span.Length, kind);
+    private CreateSpan(span: Core.Text.TextSpan, kind: PHighlight.HighlightSyntaxKind) {
+        return new Playground.Highlight.HighlightSpan(span.Start, span.Length, kind);
     }
 
     private ApplyChangedOnSource(): void {

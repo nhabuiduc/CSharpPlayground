@@ -117,6 +117,7 @@ div.CodeMirror-overwrite div.CodeMirror-cursor {}
 .cm-s-default .cm-link {color: #00c;}*/
 
 .cm-s-default .cm-keyword {color: blue;}
+.cm-s-default .cm-constructor1 {color:#6e9fbd;}
 .cm-s-default .cm-class {color: #4F94BC;}
 .cm-s-default .cm-atom {color: #219;}
 .cm-s-default .cm-number {color: #164;}
@@ -127,7 +128,8 @@ div.CodeMirror-overwrite div.CodeMirror-cursor {}
 .cm-s-default .cm-operator {}
 .cm-s-default .cm-variable-2 {color: #05a;}
 .cm-s-default .cm-variable-3 {color: #085;}
-.cm-s-default .cm-comment {color: #a50;}
+.cm-s-default .cm-comment {color: green;}
+.cm-s-default .cm-xml-comment {color: silver;}
 .cm-s-default .cm-string {color: #a11;}
 .cm-s-default .cm-string-2 {color: #f50;}
 .cm-s-default .cm-meta {color: #555;}

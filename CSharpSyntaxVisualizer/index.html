@@ -10,13 +10,11 @@
     <link rel="stylesheet" href="Content/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="Content/codemirror.css" type="text/css" />
     <link rel="stylesheet" href="Content/app.css" type="text/css" />
-    <link rel="stylesheet" href="Content/syntax-highlight.css" type="text/css" />
 
     <!-- Third Party -->
     <script src="Scripts/jquery-1.9.1.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/codemirror.js"></script>
-    <!--<script src="Scripts/clike.js"></script>-->
 
     <!-- Angular -->
     <script src="Scripts/angular.min.js"></script>
@@ -27,21 +25,12 @@
     <script src="Scripts/Net.Bcl.js"></script>
     <script src="Scripts/unicode-categories.js"></script>
     <script src="Scripts/Roslyn.Core.Parser.js"></script>
+    <!--<script src="Scripts/Roslyn.Core.Parser.min.js"></script>-->
     <script src="Scripts/Roslyn.CSharp.Parser.js"></script>
+    <!--<script src="Scripts/Roslyn.CSharp.Parser.min.js"></script>-->
 
     <!-- Page -->
     <script src="Scripts/CSharpSyntaxVisualizer.js"></script>
-    <!--<script src="TypeScripts/Imports.js"></script>
-    <script src="TypeScripts/CSharpSyntaxService.js"></script>
-
-    <script src="TypeScripts/AppService.js"></script>
-    <script src="TypeScripts/Tree-UI/TreeItem.js"></script>
-    <script src="TypeScripts/SyntaxTreeController.js"></script>
-    <script src="TypeScripts/CodeEditorController.js"></script>
-    <script src="app.js"></script>-->
-    <script>
-
-    </script>
 
 </head>
 <body ng-app="app">
@@ -58,7 +47,7 @@
             </div>
         </div>
         <div class="source-code-outer" ng-controller="CodeEditorController">
-            <textarea ui-codemirror="cmOption" id="sourceCode" wrap="off" style="width:100%;height:100%;">
+            <textarea ui-codemirror="cmOption" id="sourceCode" style="width:100%;height:100%;">
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,17 +62,50 @@ namespace PilotProject
     [Serializable]
     public class FirstClass
     {        
+        public int Property1 { get; set; }
+
+        public FirstStruct StructProperty { get;set;}
+
+        // Comments for this Method
         public static int Main(params string[] args)
         {
-            return 0;
+           var literalStr = "this is string";
+            var anotherStr = $"still the str {args} and str {literalStr}";
+
+            var multilineStr = @"
+            this is my string";
+
+            foreach(var a in literalStr){
+            }
+
+            PilotProject.FirstStruct struct1 = new PilotProject.FirstStruct();
+            
+
+            return 0;            
+        }
+    }
+
+    public interface IFoo{
+                
+    }
+
+    private enum Enum1{
+        Item 1 =1,
+    }
+
+    internal struct FirstStruct
+    {
+        FirstStruct(){
+                /* multiline
+                comments
+                */
+             FirstStruct struct2 = new FirstStruct();
         }
     }
 }
 
             </textarea>
-        </div>
-        <hr style="clear:both;" />
-        <textarea id="errorBox" style="height:10%;width:100%; margin-top:10px;"></textarea>
+        </div>      
     </div>
 
 </body>
