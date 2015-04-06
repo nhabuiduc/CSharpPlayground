@@ -16,7 +16,7 @@ module Playground {
                 onExpand: this.handleNodeExpanded.bind(this)
             };
 
-            setInterval(this.refreshTree.bind(this), 600);
+            setInterval(this.refreshTree.bind(this), 500);
             appService.onCursorChange = this.handleSourceCursorChanged.bind(this);
             this.initializeTree();
         }
@@ -87,7 +87,7 @@ module Playground {
         }
 
         private refreshTree() {
-            var tree = this.csharpSyntaxService.GetTree();
+            var tree = this.csharpSyntaxService.GetLastTree();
             if (this.lastTree != tree) {
                 this.populateTree(tree);
                 this.lastTree = tree;

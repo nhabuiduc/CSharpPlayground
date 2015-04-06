@@ -93,7 +93,8 @@ declare module CodeMirror {
     function signal(target: any, name: string, ...args: any[]): void;
 
     interface Editor {
-    
+        csharpSyntaxService: CSharpSyntaxService;
+        runCSharpMode(cm: CodeMirror.Editor, line: CodeMirror.LineHandle, st:any[]): void;
         /** Tells you whether the editor currently has focus. */
         hasFocus(): boolean;
     
@@ -391,8 +392,7 @@ declare module CodeMirror {
     }
 
     class Doc {
-        constructor (text: string, mode?: any, firstLineNumber?: number);
-
+        constructor(text: string, mode?: any, firstLineNumber?: number);
         /** Get the current editor content. You can pass it an optional argument to specify the string to be used to separate lines (defaults to "\n"). */
         getValue(seperator?: string): string;
 
@@ -570,8 +570,13 @@ declare module CodeMirror {
 
     }
 
+    interface StyleInfo {
+
+    }
+
     interface LineHandle {
         text: string;
+        lineNo(): number;
     }
 
     interface TextMarker {

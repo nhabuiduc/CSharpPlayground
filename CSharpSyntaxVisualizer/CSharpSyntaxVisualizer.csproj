@@ -87,6 +87,7 @@
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="TypeScripts\AppService.ts" />
     <TypeScriptCompile Include="TypeScripts\CodeEditorController.ts" />
+    <TypeScriptCompile Include="TypeScripts\CodeMirrorExtended.ts" />
     <TypeScriptCompile Include="TypeScripts\CSharpSyntaxService.ts" />
     <TypeScriptCompile Include="TypeScripts\Highlight\HighlightCssMapping.ts" />
     <TypeScriptCompile Include="TypeScripts\Highlight\HighlightSpan.ts" />

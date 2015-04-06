@@ -16,6 +16,7 @@
     <script src="Scripts/jquery-1.9.1.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/codemirror.js"></script>
+    <!--<script src="Scripts/clike.js"></script>-->
 
     <!-- Angular -->
     <script src="Scripts/angular.min.js"></script>
@@ -57,7 +58,6 @@
             </div>
         </div>
         <div class="source-code-outer" ng-controller="CodeEditorController">
-            <button ng-click="highlightClick()" >Highlight</button>
             <textarea ui-codemirror="cmOption" id="sourceCode" wrap="off" style="width:100%;height:100%;">
 using System;
 using System.Collections.Generic;

@@ -6668,10 +6668,15 @@
     // A styles array always starts with a number identifying the
     // mode/overlays that it is based on (for easy invalidation).
     var st = [cm.state.modeGen], lineClasses = {};
-    // Compute the base array of styles
-    runMode(cm, line.text, cm.doc.mode, state, function(end, style) {
-      st.push(end, style);
-    }, lineClasses, forceToEnd);
+      // Compute the base array of styles
+    if (cm.runCSharpMode !== void 0) {
+        cm.runCSharpMode(cm,line,st);
+    } else {
+        runMode(cm, line.text, cm.doc.mode, state, function (end, style) {
+            st.push(end, style);
+        }, lineClasses, forceToEnd);
+    }
+      
 
     // Run overlays, adjust style array.
     for (var o = 0; o < cm.state.overlays.length; ++o) {
@@ -7527,6 +7532,7 @@
 
   // Public alias.
   Doc.prototype.eachLine = Doc.prototype.iter;
+  Doc.prototype.resetModeState = resetModeState;
 
   // Set up methods on CodeMirror's prototype to redirect to the editor's document.
   var dontDelegate = "iter insert remove copy getEditor".split(" ");

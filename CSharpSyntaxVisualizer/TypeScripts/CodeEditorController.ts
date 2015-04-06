@@ -10,26 +10,22 @@ module Playground {
             $scope.cmOption = {
                 lineNumbers: true,
                 indentWithTabs: true,
-                onLoad: this.handleEditorLoad.bind(this)
+                onLoad: this.handleEditorLoad.bind(this),                
             };
 
             $scope.highlightClick = this.highlightSyntax.bind(this);
-
-            //setInterval(this.highlightSyntax.bind(this), 1000);
         }
 
         private highlightSyntax(): void {
             var code = this.appService.getSource();
 
             var tokens = this.csharpSyntaxService.GetTokensFromSpan(0, code.length);
-
             for (var i = 0; i < tokens.length; i++) {
                 var token = tokens[i];
                 var css = Playground.Mapping.highlightCss[token.Kind];
                 var start = this.doc.posFromIndex(token.Start);
                 var end = this.doc.posFromIndex(token.Start + token.Length);
                 this.doc.markText(start, end, { className: css });                
-
             }
         }
 
@@ -37,6 +33,16 @@ module Playground {
             this.appService.setCodeMirror(editor);
             this.editor = editor;
             this.doc = editor.getDoc();
+            editor.csharpSyntaxService = this.csharpSyntaxService;
+            editor.runCSharpMode = CodeMirrorExtended.runCSharpMode;
+            // define faked mode
+            CodeMirror.defineMode('roslynCSharp',(config: CodeMirror.EditorConfiguration, modeOptions?: any) => {
+                return {
+                    token: function (stream) { stream.skipToEnd(); return null;},
+                    startState: function () { return null; }
+                };
+            });
+            this.editor.setOption('mode','roslynCSharp');
             editor.on("cursorActivity", this.handleEditor_cursorActivity.bind(this));
             editor.on("beforeChange", this.handleEditor_beforeChange.bind(this));
         }
@@ -65,7 +71,6 @@ module Playground {
         }
     }
 }
-
 
 app.controller('CodeEditorController',
     ['$scope', 'appService', 'csharpSyntaxService', Playground.CodeEditorController]);

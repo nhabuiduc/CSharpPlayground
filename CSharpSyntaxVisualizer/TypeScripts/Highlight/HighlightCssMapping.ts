@@ -2,10 +2,13 @@
 module Playground {
     export class Mapping {
         public static highlightCss: Highlight.HighlightCssMapping = <any>new Object();    
+        public static getHighlight(kind: Playground.Highlight.HighlightSyntaxKind) {
+            return Mapping.highlightCss[kind] || null;
+        }
     }
 
-    Mapping.highlightCss[Playground.Highlight.HighlightSyntaxKind.Keyword] = 'hl-syntax-keyword';
-    Mapping.highlightCss[Playground.Highlight.HighlightSyntaxKind.ClassName] = 'hl-syntax-classname';       
+    Mapping.highlightCss[Playground.Highlight.HighlightSyntaxKind.Keyword] = 'keyword';
+    Mapping.highlightCss[Playground.Highlight.HighlightSyntaxKind.ClassName] = 'class';       
 }
 
 module Playground.Highlight {
