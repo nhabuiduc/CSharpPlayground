@@ -10,42 +10,45 @@
     <link rel="stylesheet" href="Content/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="Content/codemirror.css" type="text/css" />
     <link rel="stylesheet" href="Content/app.css" type="text/css" />
+    <link rel="stylesheet" href="Content/goldenlayout-base.css" type="text/css" />
+    <link rel="stylesheet" href="Content/goldenlayout-light-theme.css" type="text/css" />
+    <link rel="stylesheet" href="Content/listview.css" type="text/css" />
 
     <!-- Third Party -->
     <script src="Scripts/jquery-1.9.1.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/codemirror.js"></script>
+    <script src="Scripts/goldenlayout.min.js"></script>
 
     <!-- Angular -->
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/ya-treeview-tpls.js"></script>
     <script src="Scripts/ui-codemirror.min.js"></script>
+    <script src="Scripts/listview.js"></script>
 
     <!-- Roslyn Syntax Parser -->
     <script src="Scripts/Net.Bcl.js"></script>
     <script src="Scripts/unicode-categories.js"></script>
-    <script src="Scripts/Roslyn.Core.Parser.js"></script>
-    <!--<script src="Scripts/Roslyn.Core.Parser.min.js"></script>-->
+    <!--<script src="Scripts/Roslyn.Core.Parser.min.js"></script>
+    <script src="Scripts/Roslyn.CSharp.Parser.min.js"></script>-->
+    <script src="Scripts/Roslyn.Core.Parser.js"></script>    
     <script src="Scripts/Roslyn.CSharp.Parser.js"></script>
-    <!--<script src="Scripts/Roslyn.CSharp.Parser.min.js"></script>-->
-
+    
     <!-- Page -->
     <script src="Scripts/CSharpSyntaxVisualizer.js"></script>
-
-</head>
-<body ng-app="app">
-    <div>
-        <span style="font-size:30px;margin-left:10px;" >CSharp Playground</span> <span>(based on Roslyn project - CTP 5)</span>
-    </div>
-   
-    <hr style="clear:both;" />
-    <div id="content" style="margin:10px;height:100%" ng-controller="SyntaxTreeController">
-        
-        <div class="visual-tree-outer" id="tree-container">
+    <script>
+        $(document).ready(function () {
+            myLayout.init();
+        });
+    </script>
+    <script type="text/template" id="TreeTemplate">
+        <div class="visual-tree-outer" id="tree-container" ng-controller="SyntaxTreeController">
             <div ya-treeview ya-id="myTree" ya-model="model" ya-options="options" ya-context="context">
                 <span id="{{node.$model.id}}" ng-class="[node.$model.cssClass, context.selectedNodes.indexOf(node)>-1 ? 'selected' :'']">{{ node.$model.label }}</span>
             </div>
         </div>
+    </script>
+    <script type="text/template" id="EditorTemplate">
         <div class="source-code-outer" ng-controller="CodeEditorController">
             <textarea ui-codemirror="cmOption" id="sourceCode" style="width:100%;height:100%;">
 using System;
@@ -61,7 +64,7 @@ namespace PilotProject
     /// &lt;/summary&gt;
     [Serializable]
     public class FirstClass
-    {        
+    {
         public int Property1 { get; set; }
 
         public FirstStruct StructProperty { get;set;}
@@ -69,7 +72,7 @@ namespace PilotProject
         // Comments for this Method
         public static int Main(params string[] args)
         {
-           var literalStr = "this is string";
+            var literalStr = "this is string";
             var anotherStr = $"still the str {args} and str {literalStr}";
 
             var multilineStr = @"
@@ -79,34 +82,49 @@ namespace PilotProject
             }
 
             PilotProject.FirstStruct struct1 = new PilotProject.FirstStruct();
-            
 
-            return 0;            
+
+            return 0;
         }
     }
 
     public interface IFoo{
-                
+
     }
 
     private enum Enum1{
-        Item 1 =1,
+    Item 1 =1,
     }
 
     internal struct FirstStruct
     {
         FirstStruct(){
-                /* multiline
-                comments
-                */
-             FirstStruct struct2 = new FirstStruct();
+        /* multiline
+        comments
+        */
+        FirstStruct struct2 = new FirstStruct();
         }
     }
 }
 
             </textarea>
-        </div>      
+        </div>
+    </script>
+    <script type="text/template" id="IssuesTemplate">
+        <div class="issues-outer-div" ng-controller="IssueViewController">
+            <div data-listview
+                 data-items="items"
+                 rowdblclick="handleDbclick(item)"
+                 data-columns="error,line,column">
+            </div>
+        </div>
+    </script>
+</head>
+<body>
+    <div>
+        <span style="font-size:30px;margin-left:10px;">CSharp Playground</span> <span>(based on Roslyn project - CTP 5)</span>
     </div>
+ 
 
 </body>
 </html>

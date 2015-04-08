@@ -83,8 +83,7 @@ module Roslyn.Utilities {
         export class Empty {
 
         }
-
-       
+   
         export module Empty {
             export class Array<T>
             {
@@ -117,15 +116,16 @@ module Roslyn.Utilities {
                 GetEnumerator(): System.Collections.IEnumerator;
                 public GetEnumerator(): System.Collections.Generic.IEnumerator<T>;
                 GetEnumerator(): any {
-                    return this.GetEnumerator_overload0();
-                    return this.GetEnumerator_overload1();
-                }
-                private GetEnumerator_overload0(): System.Collections.IEnumerator {
-                    return this.GetEnumerator();
-                }
-                private GetEnumerator_overload1(): System.Collections.Generic.IEnumerator<T> {
                     return this.enumerator;
+                    //return this.GetEnumerator_overload0();
+                    //return this.GetEnumerator_overload1();
                 }
+                //private GetEnumerator_overload0(): System.Collections.IEnumerator {
+                //    return this.GetEnumerator();
+                //}
+                //private GetEnumerator_overload1(): System.Collections.Generic.IEnumerator<T> {
+                //    return this.enumerator;
+                //}
             }
             export class Collection<T> extends Roslyn.Utilities.SpecializedCollections.Empty.Enumerable<T> implements Roslyn.Utilities.SpecializedCollections.Empty.Enumerable<T>, System.Collections.Generic.ICollection<T>
             {

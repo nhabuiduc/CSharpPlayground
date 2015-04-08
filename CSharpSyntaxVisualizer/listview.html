@@ -1,0 +1,25 @@
+﻿<div class="listview">
+    <table class="table" >
+        <thead>
+            <tr>
+                <th class="error-icon"></th>
+                <th ng-repeat="column in columns" class="column column-{{column}}">
+                    {{column | capitalize}}
+                </th>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr ng-dblclick="rowdblclick({item:item})" ng-repeat="item in items" class="item">
+                <td class="error-icon"><div class="glyphicon glyphicon-remove-sign"></div></td>
+                <td ng-repeat="column in columns" class="column column-{{column}}" ng-include="getTemplate(column)"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- default -->
+<script type="text/ng-template" id="column-default.html">
+    {{_format(column,item)}}
+</script>
+

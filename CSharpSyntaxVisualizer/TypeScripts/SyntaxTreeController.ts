@@ -87,7 +87,7 @@ module Playground {
         }
 
         private refreshTree() {
-            var tree = this.csharpSyntaxService.GetLastTree();
+            var tree = this.csharpSyntaxService.getLastTree();
             if (this.lastTree != tree) {
                 this.populateTree(tree);
                 this.lastTree = tree;
@@ -205,7 +205,7 @@ module Playground {
             }
             try {
                 this.isNavigatingFromTreeToSource = true;
-                this.appService.SetSelection(location.Start, location.End);
+                this.appService.setSelection(location.Start, location.End);
             } finally {
                 this.isNavigatingFromTreeToSource = false;
             }

@@ -1,8 +1,13 @@
 ﻿body, html {
     font-family: 'Segoe UI', sans-serif;
-    height: 100%;
+    height: 90%;
     margin: auto;
-    overflow:hidden;
+    /*overflow:hidden;*/
+    padding-bottom:10px;
+}
+
+body{
+    
 }
 
 span {
@@ -23,26 +28,35 @@ span {
     background: #aaa;
 }
 
+.issues-outer-div
+{
+    height:100%;
+    width:100%;
+    background-color:white;
+    overflow:scroll;
+}
+
 .visual-tree-outer {
     float: left;
-    width: 29%;
-    border-width: 1px;
+    width: 100%;
+    /*border-width: 1px;
     border-color: black;
-    border-style: solid;
+    border-style: solid;*/
     overflow: scroll;
-     height:85%;
+     height:100%;
     top: 10px;
     bottom: 10px;
+    background-color:white;
 }
 
 .source-code-outer {
     float: left;
-    width: 70%;
-    ;
-    border-width: 1px;
+    width: 100%;
+    
+    /*border-width: 1px;
     border-color: black;
-    border-style: solid;
-    height:85%;
+    border-style: solid;*/
+    height:100%;
     top: 10px;
     bottom: 10px;
 }

@@ -283,7 +283,7 @@ module Microsoft.CodeAnalysis.Text {
             while (index < length) {
                 var c: string = this.$get$(index++);
                 var bias: number = '\r'.charCodeAt(0) + 1;
-                if ((c.charCodeAt(0) - bias) <= (127 - bias)) {
+                if (((c.charCodeAt(0) - bias) >>> 0) <= (127 - bias)) {
                     continue;
                 }
                 if (c == '\r' && index < length && this.$get$(index) == '\n') {

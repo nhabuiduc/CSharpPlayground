@@ -8,6 +8,8 @@ class AppService {
     // events
     public onCursorChange: (position: number) => void;
     public onNodeSelectionChanged: (start: number, end: number) => void;
+    public onErrorChanged: (d: Playground.Cm.DiagnosticMarkedText[]) => void;
+    public onNavigateToError: (d: Playground.Cm.DiagnosticMarkedText) => void;
 
     // public methods
     public setCodeMirror(codeMirror: CodeMirror.Editor) {
@@ -17,7 +19,7 @@ class AppService {
     public getSource(): string {
         return this.sourceCodeEditor.getSource();
     }
-    public SetSelection(start: number, end: number) {
+    public setSelection(start: number, end: number) {
         this.onNodeSelectionChanged(start, end);
     }
     public setErrorText(text: string) {
@@ -26,7 +28,7 @@ class AppService {
     }
 }
 
-var app = angular.module('app', ['ya.treeview', 'ya.treeview.tpls', 'ui.codemirror']);
+var app = angular.module('app', ['ya.treeview', 'ya.treeview.tpls', 'ui.codemirror', 'ui.listview']);
 app.service('appService', AppService);
 app.service('csharpSyntaxService', CSharpSyntaxService);
 

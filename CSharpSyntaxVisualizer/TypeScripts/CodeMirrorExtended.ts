@@ -7,7 +7,7 @@
         }
 
         private static BuildEndPositionWithStyle(start: number, length: number, cm: CodeMirror.Editor, st: any[]): void{
-            var tokenSpans = cm.csharpSyntaxService.GetTokensFromSpan(start, length);
+            var tokenSpans = cm.csharpSyntaxService.getTokensFromSpan(start, length);
             var begin = start;
             _foreach(tokenSpans, ts => {
                 var style = Playground.Mapping.getHighlight(ts.Kind);

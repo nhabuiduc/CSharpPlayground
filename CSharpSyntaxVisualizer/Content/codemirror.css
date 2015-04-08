@@ -115,7 +115,11 @@ div.CodeMirror-overwrite div.CodeMirror-cursor {}
 .cm-s-default .cm-quote {color: #090;}
 .cm-s-default .cm-hr {color: #999;}
 .cm-s-default .cm-link {color: #00c;}*/
-
+.cm-s-default .cm-trailingspace {
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAACCAYAAAB/qH1jAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QUXCToH00Y1UgAAACFJREFUCNdjPMDBUc/AwNDAAAFMTAwMDA0OP34wQgX/AQBYgwYEx4f9lQAAAABJRU5ErkJggg==);
+        background-position: bottom left;
+        background-repeat: repeat-x;
+      }
 .cm-s-default .cm-keyword {color: blue;}
 .cm-s-default .cm-constructor1 {color:#6e9fbd;}
 .cm-s-default .cm-class {color: #4F94BC;}
