@@ -22,17 +22,17 @@
 
     <!-- Angular -->
     <script src="Scripts/angular.min.js"></script>
-    <script src="Scripts/ya-treeview-tpls.js"></script>
+    <!--<script src="Scripts/ya-treeview-tpls.js"></script>-->
     <script src="Scripts/ui-codemirror.min.js"></script>
     <script src="Scripts/listview.js"></script>
 
     <!-- Roslyn Syntax Parser -->
     <script src="Scripts/Net.Bcl.js"></script>
     <script src="Scripts/unicode-categories.js"></script>
-    <!--<script src="Scripts/Roslyn.Core.Parser.min.js"></script>
-    <script src="Scripts/Roslyn.CSharp.Parser.min.js"></script>-->
-    <script src="Scripts/Roslyn.Core.Parser.js"></script>    
-    <script src="Scripts/Roslyn.CSharp.Parser.js"></script>
+    <script src="Scripts/Roslyn.Core.Parser.min.js"></script>
+    <script src="Scripts/Roslyn.CSharp.Parser.min.js"></script>
+    <!--<script src="Scripts/Roslyn.Core.Parser.js"></script>    
+    <script src="Scripts/Roslyn.CSharp.Parser.js"></script>-->
     
     <!-- Page -->
     <script src="Scripts/CSharpSyntaxVisualizer.js"></script>
@@ -44,7 +44,7 @@
     <script type="text/template" id="TreeTemplate">
         <div class="visual-tree-outer" id="tree-container" ng-controller="SyntaxTreeController">
             <div ya-treeview ya-id="myTree" ya-model="model" ya-options="options" ya-context="context">
-                <span id="{{node.$model.id}}" ng-class="[node.$model.cssClass, context.selectedNodes.indexOf(node)>-1 ? 'selected' :'']">{{ node.$model.label }}</span>
+                <span id="{{node.id}}" ng-class="[node.cssClass, context.selectedNodes.indexOf(node)>-1 ? 'selected' :'']">{{ node.label }}</span>
             </div>
         </div>
     </script>

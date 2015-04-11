@@ -67,16 +67,6 @@
             }
         };
 
-        var fillChildrenNodesImmediate = function (node, value) {
-            if (node.$hasChildren) {
-                angular.forEach(node.$children, function (child) {
-                    if (child.$hasChildren) {
-                        var children = YaTreeviewService.children(child, options);
-                        child.$children = value || YaTreeviewService.nodifyArray(children, child, options);
-                    }
-                });
-            }
-        };
 
         var createRootNode = function(nodes) {
             var node = {};

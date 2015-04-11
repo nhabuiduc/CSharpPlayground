@@ -1,4 +1,11 @@
 ﻿///<reference path="AppService.ts"/>
+///<reference path="Tree-UI/TreeView.ts"/>
+interface ISyntaxTreeScope extends ng.IScope{
+    node: TreeItem;
+    options: ITreeScopeOption;
+    context: ITreeContext;
+}
+
 module Playground {
     export class SyntaxTreeController {
 
@@ -6,18 +13,21 @@ module Playground {
         private lastPosition: number;
         private isNavigatingFromTreeToSource = false;
         private isCursorChanged = false;
+        private get context(): ITreeContext {
+            return this.$scope.context;
+        }
 
-        constructor(private $scope: any, private appService: AppService, private csharpSyntaxService: CSharpSyntaxService,
+        constructor(private $scope: ISyntaxTreeScope, private appService: AppService, private csharpSyntaxService: CSharpSyntaxService,
             private $interval: angular.IIntervalService, private $timeout: angular.ITimeoutService) {
 
-            this.$scope.context = { selectedNodes: [] };
             $scope.options = {
                 onSelect: this.navigateToSource.bind(this),
                 onExpand: this.handleNodeExpanded.bind(this)
             };
 
-            setInterval(this.refreshTree.bind(this), 1500);
+            setInterval(this.refreshTree.bind(this), 500);
             appService.onCursorChange = this.handleSourceCursorChanged.bind(this);
+           
             this.initializeTree();
         }
 
@@ -25,15 +35,7 @@ module Playground {
             var tree = this.csharpSyntaxService.ParseTree($('#sourceCode').val());
             this.populateDiagnostic(tree);
             var nodes = Linq.Enumerable.ToArray(tree.GetRoot().ChildNodesAndTokens());
-            this.$scope.model = TreeItem.ToTreeItemArr(nodes);
-        }
-
-        private getRoot(): VirtualTreeItem {
-            return this.$scope.context.rootNode;
-        }
-
-        private getContext(): TreeContext {
-            return this.$scope.context;
+            this.$scope.options.initializedNodes = TreeItem.ToTreeItemArr(nodes);
         }
 
         private handleSourceCursorChanged(position: number) {
@@ -43,46 +45,38 @@ module Playground {
             this.lastPosition = position;
             this.isCursorChanged = true;
 
-            ////this.$timeout( () => {
-            ////    this.expandTreeToPosition(position);
-            ////    this.lastPosition = position;
-            ////    this.isCursorChanged = false;
-            ////});
         }
 
-        private handleNodeExpanded($event, virtualTreeItem: VirtualTreeItem, context: TreeContext) {
-            if (virtualTreeItem.$children.length > 0) {
+        private handleNodeExpanded($event, virtualTreeItem: TreeItem, context: ITreeContext) {
+            if (virtualTreeItem.children.length > 0) {
                 return;
             }
-            if (virtualTreeItem.$model.syntaxNode != null) {
-                var nodes = Linq.Enumerable.ToArray(virtualTreeItem.$model.syntaxNode.ChildNodesAndTokens());
+            if (virtualTreeItem.syntaxNode != null) {
+                var nodes = Linq.Enumerable.ToArray(virtualTreeItem.syntaxNode.ChildNodesAndTokens());
                 var virArr = TreeItem.ToTreeItemArr(nodes);
 
-                virtualTreeItem.$model.children = virArr;
-                virtualTreeItem.$children = context.nodifyArray(virArr);
+                virtualTreeItem.children = virArr;
+                //virtualTreeItem.children = context.nodifyArray(virArr);
             }
-            else if (virtualTreeItem.$model.syntaxToken != null) {
-                var leadingTrivias = Linq.Enumerable.ToArray(virtualTreeItem.$model.syntaxToken.LeadingTrivia);
-                var trailingTrivias = Linq.Enumerable.ToArray(virtualTreeItem.$model.syntaxToken.TrailingTrivia);
+            else if (virtualTreeItem.syntaxToken != null) {
+                var leadingTrivias = Linq.Enumerable.ToArray(virtualTreeItem.syntaxToken.LeadingTrivia);
+                var trailingTrivias = Linq.Enumerable.ToArray(virtualTreeItem.syntaxToken.TrailingTrivia);
                 var virLeading = TreeItem.ToTreeItemTriviaArr(leadingTrivias, true);
                 var virTrailing = TreeItem.ToTreeItemTriviaArr(trailingTrivias, false);
 
-                var arr = [];
-                if (virtualTreeItem.$model.syntaxToken.HasLeadingTrivia) {
+                var arr: TreeItem[] = [];
+                if (virtualTreeItem.syntaxToken.HasLeadingTrivia) {
                     arr = arr.concat(virLeading);
                 }
-                if (virtualTreeItem.$model.syntaxToken.HasTrailingTrivia) {
+                if (virtualTreeItem.syntaxToken.HasTrailingTrivia) {
                     arr = arr.concat(virTrailing);
                 }
 
-                virtualTreeItem.$model.children = arr;
-                virtualTreeItem.$children = context.nodifyArray(arr);
+                virtualTreeItem.children = arr;
 
             } else {
-                var nodeTrivia = TreeItem.ToTreeItem_Node(virtualTreeItem.$model.syntaxTrivia.GetStructure());
-                var virNode = context.nodify(nodeTrivia);
-                virtualTreeItem.$model.children = [nodeTrivia];
-                virtualTreeItem.$children = [virNode];
+                var nodeTrivia = TreeItem.ToTreeItem_Node(virtualTreeItem.syntaxTrivia.GetStructure());
+                virtualTreeItem.children = [nodeTrivia];
             }
         }
 
@@ -106,12 +100,12 @@ module Playground {
                 return;
             }
 
-            if (this.getRoot().collapsed == true) {
-                this.getRoot().collapsed = false;
+            if (this.context.root.collapsed == true) {
+                this.context.root.collapsed = false;
             }
 
             this.$scope.$apply();
-            var $element = $("#" + match.$model.id);
+            var $element = $("#" + match.id);
             if ($element.length == 0) {
                 return;
             }
@@ -120,13 +114,13 @@ module Playground {
             $treeContainer.scrollTop($treeContainer.scrollTop() + $element.position().top - $treeContainer.position().top - $treeContainer.height() / 2);
         }
 
-        private navigateToBestMatch(position: number): VirtualTreeItem {
-            var match: VirtualTreeItem;
+        private navigateToBestMatch(position: number): TreeItem {
+            var match: TreeItem;
             if (!this.isNavigatingFromTreeToSource) {
                 this.isNavigatingFromTreeToSource = true;
                 try {
-                    this.getContext().selectedNodes = [];
-                    match = this.navigateToTreeItem(this.getRoot(), position);
+                    this.context.selectedNodes = [];
+                    match = this.navigateToTreeItem(this.context.root, position);
 
                 } finally {
                     this.isNavigatingFromTreeToSource = false;
@@ -136,27 +130,27 @@ module Playground {
             return match;
         }
 
-        private navigateToTreeItem(current: VirtualTreeItem, position: number): VirtualTreeItem {
-            var match: VirtualTreeItem = null;
+        private navigateToTreeItem(current: TreeItem, position: number): TreeItem {
+            var match: TreeItem = null;
             if (current == null) {
                 return null;
             }
 
-            if (current.$model.fullSpan === void 0 || current.$model.fullSpan.Contains_2103(position)) {                
-                this.getContext().selectedNodes.push(current);
-                if (current.$children) {
-                    this.getContext().expand(null, current);
+            if (current.fullSpan === void 0 || current.fullSpan.Contains_2103(position)) {
+                this.context.selectedNodes.push(current);
+                if (current.children) {
+                    this.context.expand(null, current);
 
-                    for (var i = 0; i < current.$children.length; i++) {
+                    for (var i = 0; i < current.children.length; i++) {
                         var tempMatch = null;
                         if (match == null) {
-                            tempMatch = this.navigateToTreeItem(current.$children[i], position);
+                            tempMatch = this.navigateToTreeItem(current.children[i], position);
                         }
 
                         if (tempMatch != null) {
                             match = tempMatch;
                         } else {
-                            this.getContext().collapse(null, current.$children[i]);
+                            this.context.collapse(null, current.children[i]);
                         }
                     }
                 }
@@ -164,7 +158,7 @@ module Playground {
                 if (match == null) {
 
                     match = current;
-                    this.getContext().collapse(null, current);
+                    this.context.collapse(null, current);
                 }
             }
 
@@ -187,21 +181,18 @@ module Playground {
 
         private populateTree(tree: Core.SyntaxTree) {
             var nodes = Linq.Enumerable.ToArray(tree.GetRoot().ChildNodesAndTokens());
-            var virArr = TreeItem.ToTreeItemArr(nodes);
-            var root = this.getRoot();
-            root.$model = TreeItem.ToTreeItem_Node(tree.GetRoot());
-            root.$children = this.$scope.context.nodifyArray(virArr);
+            TreeItem.ModifyArray(this.context.root.children, nodes);
         }
 
-        private navigateToSource($event, node: VirtualTreeItem, context): void {
+        private navigateToSource($event, node: TreeItem, context): void {
             context.selectedNodes = [node];
             var location: Core.Text.TextSpan;
-            if (node.$model.syntaxNode != null) {
-                location = node.$model.syntaxNode.Span;
-            } else if (node.$model.syntaxToken != null) {
-                location = node.$model.syntaxToken.Span;
+            if (node.syntaxNode != null) {
+                location = node.syntaxNode.Span;
+            } else if (node.syntaxToken != null) {
+                location = node.syntaxToken.Span;
             } else {
-                location = node.$model.syntaxTrivia.Span;
+                location = node.syntaxTrivia.Span;
             }
             try {
                 this.isNavigatingFromTreeToSource = true;

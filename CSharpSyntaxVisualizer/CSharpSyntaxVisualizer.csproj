@@ -104,9 +104,8 @@
     <TypeScriptCompile Include="TypeScripts\IssueViewController.ts" />
     <TypeScriptCompile Include="TypeScripts\Layout\GoldenLayoutConfig.ts" />
     <TypeScriptCompile Include="TypeScripts\SyntaxTreeController.ts" />
-    <TypeScriptCompile Include="TypeScripts\Tree-UI\TreeContext.ts" />
     <TypeScriptCompile Include="TypeScripts\Tree-UI\TreeItem.ts" />
-    <TypeScriptCompile Include="TypeScripts\Tree-UI\VirtualTreeItem.ts" />
+    <TypeScriptCompile Include="TypeScripts\Tree-UI\TreeView.ts" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
