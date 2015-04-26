@@ -171,6 +171,7 @@
     <TypeScriptCompile Include="Core\Xml\XmlCharType.ts" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Core\Binding\" />
     <Folder Include="_TSOutput\" />
   </ItemGroup>
   <ItemGroup>
