@@ -29,10 +29,10 @@
     <!-- Roslyn Syntax Parser -->
     <script src="Scripts/Net.Bcl.js"></script>
     <script src="Scripts/unicode-categories.js"></script>
-    <script src="Scripts/Roslyn.Core.Parser.min.js"></script>
-    <script src="Scripts/Roslyn.CSharp.Parser.min.js"></script>
-    <!--<script src="Scripts/Roslyn.Core.Parser.js"></script>    
-    <script src="Scripts/Roslyn.CSharp.Parser.js"></script>-->
+    <!--<script src="Scripts/Roslyn.Core.Parser.min.js"></script>
+    <script src="Scripts/Roslyn.CSharp.Parser.min.js"></script>-->
+    <script src="Scripts/Roslyn.Core.Parser.js"></script>    
+    <script src="Scripts/Roslyn.CSharp.Parser.js"></script>
     
     <!-- Page -->
     <script src="Scripts/CSharpSyntaxVisualizer.js"></script>
@@ -79,6 +79,7 @@ namespace PilotProject
             this is my string";
 
             foreach(var a in literalStr){
+                var result = from a in b where a.b == null select a;
             }
 
             PilotProject.FirstStruct struct1 = new PilotProject.FirstStruct();

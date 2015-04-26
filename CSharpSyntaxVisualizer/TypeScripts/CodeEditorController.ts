@@ -8,8 +8,10 @@ module Playground {
 
             this.appService.onNodeSelectionChanged = this.handleNodeSelectionChanged.bind(this);
             $scope.cmOption = {
-                lineNumbers: true,
-                indentWithTabs: true,
+                lineNumbers: false,
+                indentWithTabs: false,
+                smartIndent: false,
+                electricChars: false,                
                 onLoad: this.handleEditorLoad.bind(this),
             };
 

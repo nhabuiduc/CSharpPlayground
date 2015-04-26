@@ -27,6 +27,19 @@ class TSArray {
     //public static Resize(array: Array<any>, length: number): void {
     //    array.length = length;
     //}
+    public static ResizeWithDefault<T>(array: { refObj: Array<T> }, length: number, defaultType: { prototype: T }): void {
+        // only fill values with extended
+        var originalLength = array.refObj.length;
+        array.refObj.length = length;
+
+        if (originalLength >= length) {
+            return;
+        }
+
+        for (var i = originalLength; i < length; i++) {
+            array.refObj[i] = structDefault(defaultType);
+        }
+    }
 
     public static Resize(array: { refObj: Array<any> }, length: number): void {
         array.refObj.length = length;
@@ -75,7 +88,7 @@ class TSArray {
             return;
         }
 
-        var clearValue: any = null;        
+        var clearValue: any = null;
         if (arr.length > 0) {
 
             var firstValue = arr[0];
@@ -88,7 +101,7 @@ class TSArray {
             }
         }
 
-        for (var i = index; i < length; i++) {            
+        for (var i = index; i < length; i++) {
             arr[i] = clearValue;
         }
     }

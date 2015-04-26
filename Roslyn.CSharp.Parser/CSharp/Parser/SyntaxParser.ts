@@ -18,7 +18,7 @@
         private static blendedNodesPool: Roslyn.Utilities.ObjectPool<BlendedNode[]> = new Roslyn.Utilities.ObjectPool<BlendedNode[]>().ctor_5203(() => StructArray(BlendedNode, 32), 2);
         private blendedTokens: BlendedNode[];
         ctor_2025(lexer: Lexer, mode: LexerMode, oldTree: CSharp.CSharpSyntaxNode, changes: System.Collections.Generic.IEnumerable<Text.TextChangeRange>, allowModeReset: boolean, preLexIfNotIncremental: boolean = false, cancellationToken: System.Threading.CancellationToken = structDefault(System.Threading.CancellationToken)): SyntaxParser {
-            
+
             this.lexer = lexer;
             this.mode = mode;
             this.allowModeReset = allowModeReset;
@@ -228,7 +228,7 @@
             else {
                 var old = this.blendedTokens;
                 var blendedTokens_ref0 = { refObj: this.blendedTokens };
-                TSArray.Resize(blendedTokens_ref0, this.blendedTokens.length * 2);
+                TSArray.ResizeWithDefault(blendedTokens_ref0, this.blendedTokens.length * 2, BlendedNode);
 
                 this.blendedTokens = blendedTokens_ref0.refObj;;
                 SyntaxParser.blendedNodesPool.ForgetTrackedObject(old,/*replacement:*/this.blendedTokens);

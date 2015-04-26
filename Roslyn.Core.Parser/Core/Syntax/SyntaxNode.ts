@@ -941,7 +941,7 @@
             public PushChildren_4828(node: SyntaxNode): void {
                 if (++this.stackPtr >= this.stack.length) {
                     var stack_ref0 = { refObj: this.stack };
-                    TSArray.Resize(stack_ref0,(this.stackPtr * 2));
+                    TSArray.ResizeWithDefault(stack_ref0,(this.stackPtr * 2), ChildSyntaxList.Enumerator);
 
                     this.stack = stack_ref0.refObj;;
                 }
@@ -993,7 +993,7 @@
                 }
                 if (++this.stackPtr >= this.stack.length) {
                     var stack_ref0 = { refObj: this.stack };
-                    TSArray.Resize(stack_ref0,(this.stackPtr * 2));
+                    TSArray.ResizeWithDefault(stack_ref0,(this.stackPtr * 2), SyntaxTriviaList.Enumerator);
 
                     this.stack = stack_ref0.refObj;;
                 }
