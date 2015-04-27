@@ -23,9 +23,10 @@
   . Convert c# Syntax parser part in Roslyn into typescript (**done for version ctp5**).   
   . Create csharp syntax visualizer tool online as in Roslyn (**done**).        
   . Integrate with code editor online (codemirror) for simple highlighting (**done**).     
-  . Add syntax error checking on online code editor (done).    
-  . Convert Indentation part and integrate into editor (**in progress**).    
+  . Add syntax error checking on online code editor (**done**).    
+  . Convert System.Reflection.Metadata into Typescript. (**in progress**)    
   . Convert c# semantic analyzer part in Roslyn into Typescript.  
+  . Convert Indentation part and integrate into editor.    
   . Make syntax highlighting more accurate with sematic information.  
   . Add code complete feature to online code editor.   
   . Add feature which loads metadata information of .net dll from server to client, so it will support code complete for reference .net libraries
